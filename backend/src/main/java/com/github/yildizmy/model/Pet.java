@@ -30,11 +30,11 @@ public class Pet {
     private LocalDate birthDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_id", referencedColumnName = "id")
+    @JoinColumn(name = "type_id", referencedColumnName = "id", insertable = false, nullable = false)
     private Type type;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    @JoinColumn(name = "owner_id", referencedColumnName = "id", insertable = false, nullable = false)
     private Owner owner;
 
     @Override
