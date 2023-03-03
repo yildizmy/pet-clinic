@@ -19,7 +19,6 @@ public class ErrorResponse {
     private String stackTrace;
     private List<ValidationError> errors;
 
-    // @Data
     private record ValidationError(String field, String message) {
     }
 
