@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: pet-clinic-db
+    image: postgres:14.6-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - pet-clinic-net
+    expose:
+      - 5432
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '5'
+
+volumes:
+  db-data:
+    driver: local
+
+networks:
+  pet-clinic-net:
+    driver: bridge
