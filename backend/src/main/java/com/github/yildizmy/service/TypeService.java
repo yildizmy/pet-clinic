@@ -34,7 +34,7 @@ public class TypeService {
      * Fetches a single type by the given id
      *
      * @param id
-     * @return
+     * @return TypeResponse
      */
     public TypeResponse findById(long id) {
         return typeRepository.findById(id)
@@ -43,7 +43,18 @@ public class TypeService {
     }
 
     /**
-     * Fetches all types based on the given paging and sorting +parameters
+     * Fetches a single type (entity) by the given id
+     *
+     * @param id
+     * @return Type
+     */
+    public Type getById(long id) {
+        return typeRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementFoundException(NOT_FOUND_TYPE));
+    }
+
+    /**
+     * Fetches all types based on the given paging and sorting parameters
      *
      * @param pageable
      * @return List of TypeResponse
