@@ -65,3 +65,8 @@ server:
 
 exception:
   trace: true
+
+security:
+  app:
+    jwtSecret: ${JWT_SECRET}
+    jwtExpirationMs: 1800000
