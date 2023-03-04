@@ -47,8 +47,8 @@ logging:
     console: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint} %clr([%8.15t]){faint} %clr(%-40.40logger{0}){cyan} %clr(:){faint} %clr(%m){faint}%n'
     file: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n'
   level:
-    com.your-company: debug
-    org.springframework: error
+    com.github.yildizmy: debug
+    org.springframework: warn
     org.hibernate: error
 
 server:
