@@ -30,12 +30,12 @@ public class Pet {
     private LocalDate birthDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_id", referencedColumnName = "id", insertable = false, nullable = false)
+    @JoinColumn(name = "type_id", referencedColumnName = "id", nullable = false)
     private Type type;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id", referencedColumnName = "id", insertable = false, nullable = false)
-    private Owner owner;
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    private User user;
 
     @Override
     public boolean equals(Object o) {
