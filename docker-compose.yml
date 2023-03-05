@@ -14,7 +14,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     networks:
-      - pet-clinic-net
+      - pcbridge
     expose:
       - 5432
     logging:
@@ -28,5 +28,5 @@ volumes:
     driver: local
 
 networks:
-  pet-clinic-net:
+  pcbridge:
     driver: bridge
