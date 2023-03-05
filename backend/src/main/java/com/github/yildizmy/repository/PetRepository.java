@@ -11,5 +11,5 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
 
     boolean existsById(Long id);
 
-    List<Pet> findAllByUserId(Long userId);
+    List<Pet> findAllByUserId(long userId);
 }
