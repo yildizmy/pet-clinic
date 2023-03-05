@@ -18,8 +18,8 @@ public class PetRequest {
 
     private Long id;
 
-    @Size(min = 3, max = 50)
     @NotBlank
+    @Size(min = 3, max = 50)
     private String name;
 
     @JsonFormat(pattern = DATE_FORMAT)
