@@ -46,11 +46,10 @@ For API documentation of the application, visit the following pages during debug
 * Spring Web
 * Spring Data JPA
 * Spring Security
-* Hibernate
-* Project Lombok
-* SpringFox
-* Flyway
+* Lombok
 * PostgreSQL
+* Flyway
+* SpringFox
 
 
 ### Documentation
