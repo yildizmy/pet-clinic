@@ -12,8 +12,8 @@ public class TypeRequest {
 
     private Long id;
 
-    @Size(min = 3, max = 50)
     @NotBlank
+    @Size(min = 3, max = 50)
     private String name;
 
     @Size(min = 3, max = 50)
