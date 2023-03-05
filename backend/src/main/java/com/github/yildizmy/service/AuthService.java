@@ -9,6 +9,7 @@ import com.github.yildizmy.exception.ElementAlreadyExistsException;
 import com.github.yildizmy.model.Role;
 import com.github.yildizmy.model.RoleType;
 import com.github.yildizmy.model.User;
+import com.github.yildizmy.model.UserDetailsImpl;
 import com.github.yildizmy.repository.UserRepository;
 import com.github.yildizmy.security.JwtUtils;
 import lombok.RequiredArgsConstructor;
