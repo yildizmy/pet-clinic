@@ -4,6 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import java.util.Set;
+
 /**
  * Data Transfer Object for User request
  */
@@ -12,19 +14,21 @@ public class UserRequest {
 
     private Long id;
 
-    @Size(min = 3, max = 50)
     @NotBlank
+    @Size(min = 3, max = 50)
     private String firstName;
 
-    @Size(min = 3, max = 50)
     @NotBlank
+    @Size(min = 3, max = 50)
     private String lastName;
 
-    @Size(min = 3, max = 50)
     @NotBlank
+    @Size(min = 3, max = 20)
     private String username;
 
-    @Size(min = 3, max = 120)
     @NotBlank
+    @Size(min = 6, max = 100)
     private String password;
+
+    private Set<String> roles;
 }
