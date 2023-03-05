@@ -5,7 +5,7 @@
 
 
 ## Pet Clinic (D R A F T)
-Fullstack (Spring Boot & React) app used for managing vet and pet data. 
+Fullstack (Spring Boot & React) app for managing vet and pet data by using Spring Security, DataJPA, Hibernate, PostgreSQL, etc.
 
 
 ### Description
