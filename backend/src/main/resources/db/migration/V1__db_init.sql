@@ -43,8 +43,8 @@ CREATE TABLE public."user"
 
 CREATE TABLE public.user_role
 (
-    user_id BIGINT NOT NULL,
     role_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
     CONSTRAINT pk_user_role PRIMARY KEY (role_id, user_id)
 );
 
