@@ -1,4 +1,10 @@
-## Pet Clinic
+
+> **Note** This is the initial API implementation of the Fullstack application. Frontend part, documentation and the 
+> configuration for Docker, etc. will be provided in the following days. For this reason, it is recommended to check the 
+> repository after initial release (when it is ready, "DRAFT" will be removed from the title). 
+
+
+## Pet Clinic (D R A F T)
 Fullstack (Spring Boot & React) app used for managing vet and pet data. 
 
 
