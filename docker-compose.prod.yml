@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  frontend:
+    container_name: pet-clinic-frontend
+    build: ./frontend
+    restart: always
+    ports:
+      - '3000:3000'
+    depends_on:
+      - backend
+    networks:
+      - pcbridge
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '5'
+
+  backend:
+    container_name: pet-clinic-backend
+    build: ./backend
+    restart: always
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+    networks:
+      - pcbridge
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '100m'
+        max-file: '5'
+
+networks:
+  pcbridge:
+    driver: bridge
