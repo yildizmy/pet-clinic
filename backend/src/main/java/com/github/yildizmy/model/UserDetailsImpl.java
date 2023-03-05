@@ -1,7 +1,6 @@
-package com.github.yildizmy.service;
+package com.github.yildizmy.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.github.yildizmy.model.User;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
