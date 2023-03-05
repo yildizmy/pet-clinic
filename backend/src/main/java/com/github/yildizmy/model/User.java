@@ -33,10 +33,10 @@ public class User {
     @Column(length = 50, nullable = false)
     private String lastName;
 
-    @Column(length = 50, nullable = false, unique = true)
+    @Column(length = 20, nullable = false, unique = true)
     private String username;
 
-    @Column(length = 120, nullable = false)
+    @Column(length = 100, nullable = false)
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -50,5 +50,22 @@ public class User {
     public void removePet(Pet pet) {
         this.pets.remove(pet);
         pet.setUser(null);
+    }
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+    )
+    private Set<Role> roles = new HashSet<>();
+
+    public void addRole(Role role) {
+        roles.add(role);
+        role.getUsers().add(this);
+    }
+
+    public void removeRole(Role role) {
+        roles.remove(role);
+        role.getUsers().remove(this);
     }
 }
