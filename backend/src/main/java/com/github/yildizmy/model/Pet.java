@@ -27,8 +27,6 @@ public class Pet {
     @Column(length = 50, nullable = false)
     private String name;
 
-    private LocalDate birthDate;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_id", referencedColumnName = "id", nullable = false)
     private Type type;
