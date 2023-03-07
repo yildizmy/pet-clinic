@@ -8,11 +8,10 @@ CREATE SEQUENCE IF NOT EXISTS public.sequence_user START WITH 1 INCREMENT BY 5;
 
 CREATE TABLE pet
 (
-    id         BIGINT      NOT NULL,
-    name       VARCHAR(50) NOT NULL,
-    birth_date date,
-    type_id    BIGINT      NOT NULL,
-    user_id    BIGINT      NOT NULL,
+    id      BIGINT      NOT NULL,
+    name    VARCHAR(50) NOT NULL,
+    type_id BIGINT      NOT NULL,
+    user_id BIGINT      NOT NULL,
     CONSTRAINT pk_pet PRIMARY KEY (id)
 );
 
