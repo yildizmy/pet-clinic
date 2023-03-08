@@ -50,7 +50,7 @@ public class AuthService {
      */
     public JwtResponse login(LoginRequest request) {
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+                new UsernamePasswordAuthenticationToken(request.getUsername().trim(), request.getPassword().trim()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
@@ -69,11 +69,11 @@ public class AuthService {
      * @return id of the registered user
      */
     public CommandResponse signup(UserRequest request) {
-        if (userRepository.existsByUsernameIgnoreCase(request.getUsername()))
+        if (userRepository.existsByUsernameIgnoreCase(request.getUsername().trim()))
             throw new ElementAlreadyExistsException(ALREADY_EXISTS_USER);
 
         final User user = userRequestMapper.toEntity(request);
-        user.setPassword(encoder.encode(request.getPassword()));
+        user.setPassword(encoder.encode(request.getPassword().trim()));
         // add default role to the user
         user.setRoles(new HashSet<>(Arrays.asList(new Role(1L, RoleType.ROLE_USER))));
         userRepository.save(user);
