@@ -2,7 +2,7 @@ package com.github.yildizmy.service;
 
 import com.github.yildizmy.common.Constants;
 import com.github.yildizmy.model.User;
-import com.github.yildizmy.model.UserDetailsImpl;
+import com.github.yildizmy.security.UserDetailsImpl;
 import com.github.yildizmy.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
