@@ -25,11 +25,6 @@ public class Role {
     )
     private Long id;
 
-    public Role(Long id, RoleType type) {
-        this.id = id;
-        this.type = type;
-    }
-
     @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false, unique = true)
     private RoleType type;
@@ -45,5 +40,10 @@ public class Role {
     public void removeUser(User user) {
         users.remove(user);
         user.getRoles().remove(this);
+    }
+
+    public Role(Long id, RoleType type) {
+        this.id = id;
+        this.type = type;
     }
 }
