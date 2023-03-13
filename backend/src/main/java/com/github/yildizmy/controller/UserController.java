@@ -83,6 +83,18 @@ public class UserController {
     }
 
     /**
+     * Updates user profile by Full Name (First Name and Last Name fields)
+     *
+     * @return id of the updated user
+     */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
+    @PutMapping("/profile")
+    public ResponseEntity<ApiResponse<CommandResponse>> updateFullName(@Valid @RequestBody ProfileRequest request) {
+        final CommandResponse response = userService.updateFullName(request);
+        return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response));
+    }
+
+    /**
      * Deletes user by id
      *
      * @param id
