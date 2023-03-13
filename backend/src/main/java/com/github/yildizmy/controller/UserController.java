@@ -1,5 +1,6 @@
 package com.github.yildizmy.controller;
 
+import com.github.yildizmy.dto.request.ProfileRequest;
 import com.github.yildizmy.dto.request.UserRequest;
 import com.github.yildizmy.dto.response.ApiResponse;
 import com.github.yildizmy.dto.response.CommandResponse;
@@ -11,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Clock;
@@ -33,6 +35,7 @@ public class UserController {
      * @param id
      * @return UserResponse
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_ADMIN)")
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<UserResponse>> findById(@PathVariable long id) {
         final UserResponse response = userService.findById(id);
@@ -45,8 +48,9 @@ public class UserController {
      * @param pageable
      * @return List of UserResponse
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_ADMIN)")
     @GetMapping
-    ResponseEntity<ApiResponse<Page<UserResponse>>> findAll(Pageable pageable) {
+    public ResponseEntity<ApiResponse<Page<UserResponse>>> findAll(Pageable pageable) {
         final Page<UserResponse> response = userService.findAll(pageable);
         return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response));
     }
@@ -57,6 +61,7 @@ public class UserController {
      * @param request
      * @return id of the created user
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_ADMIN)")
     @PostMapping
     public ResponseEntity<ApiResponse<CommandResponse>> create(@Valid @RequestBody UserRequest request) {
         final CommandResponse response = userService.create(request);
@@ -70,8 +75,9 @@ public class UserController {
      *
      * @return id of the updated user
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
     @PutMapping
-    public ResponseEntity<ApiResponse<CommandResponse>> update(@Valid @RequestBody UserRequest request) {
+    public ResponseEntity<ApiResponse<CommandResponse>> update(@Valid @RequestBody ProfileRequest request) {
         final CommandResponse response = userService.update(request);
         return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response));
     }
@@ -81,6 +87,7 @@ public class UserController {
      *
      * @param id
      */
+    @PreAuthorize("hasAnyRole(T(com.github.yildizmy.model.RoleType).ROLE_ADMIN)")
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<Void>> deleteById(@PathVariable long id) {
         userService.deleteById(id);
