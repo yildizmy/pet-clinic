@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Clock;
@@ -33,6 +34,7 @@ public class TypeController {
      * @param id
      * @return TypeResponse
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<TypeResponse>> findById(@PathVariable long id) {
         final TypeResponse response = typeService.findById(id);
@@ -45,8 +47,9 @@ public class TypeController {
      * @param pageable
      * @return List of TypeResponse
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
     @GetMapping
-    ResponseEntity<ApiResponse<Page<TypeResponse>>> findAll(Pageable pageable) {
+    public ResponseEntity<ApiResponse<Page<TypeResponse>>> findAll(Pageable pageable) {
         final Page<TypeResponse> response = typeService.findAll(pageable);
         return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response));
     }
@@ -57,6 +60,7 @@ public class TypeController {
      * @param request
      * @return id of the created type
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
     @PostMapping
     public ResponseEntity<ApiResponse<CommandResponse>> create(@Valid @RequestBody TypeRequest request) {
         final CommandResponse response = typeService.create(request);
@@ -70,6 +74,7 @@ public class TypeController {
      *
      * @return id of the updated type
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
     @PutMapping
     public ResponseEntity<ApiResponse<CommandResponse>> update(@Valid @RequestBody TypeRequest request) {
         final CommandResponse response = typeService.update(request);
@@ -81,6 +86,7 @@ public class TypeController {
      *
      * @param id
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<Void>> deleteById(@PathVariable long id) {
         typeService.deleteById(id);
