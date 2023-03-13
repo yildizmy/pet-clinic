@@ -2,6 +2,7 @@ package com.github.yildizmy.service;
 
 import com.github.yildizmy.dto.mapper.UserRequestMapper;
 import com.github.yildizmy.dto.mapper.UserResponseMapper;
+import com.github.yildizmy.dto.request.ProfileRequest;
 import com.github.yildizmy.dto.request.UserRequest;
 import com.github.yildizmy.dto.response.CommandResponse;
 import com.github.yildizmy.dto.response.UserResponse;
@@ -92,7 +93,7 @@ public class UserService {
         final Set<Role> roles = new HashSet<>(Arrays.asList(new Role(1L, RoleType.ROLE_USER)));
 
         // add ROLE_ADMIN role if requested by admin
-        if (request.getRoles().contains(RoleType.ROLE_ADMIN.name()))
+        if (request.getRoles() != null && request.getRoles().contains(RoleType.ROLE_ADMIN.name()))
             roles.add(new Role(2L, RoleType.ROLE_ADMIN));
 
         final User user = userRequestMapper.toEntity(request);
@@ -109,20 +110,35 @@ public class UserService {
      * @param request
      * @return id of the updated user
      */
-    public CommandResponse update(UserRequest request) {
+    public CommandResponse update(ProfileRequest request) {
         final User user = userRepository.findById(request.getId())
                 .orElseThrow(() -> new NoSuchElementFoundException(NOT_FOUND_USER));
 
         // update admin role of the user based on the request
-        if (request.getRoles().contains(RoleType.ROLE_ADMIN.name()))
+        if (request.getRoles() != null && request.getRoles().contains(RoleType.ROLE_ADMIN.name()))
             user.addRole(new Role(2L, RoleType.ROLE_ADMIN));
         else
             user.removeRole(new Role(2L, RoleType.ROLE_ADMIN));
 
         user.setFirstName(WordUtils.capitalizeFully(request.getFirstName()));
         user.setLastName(WordUtils.capitalizeFully(request.getLastName()));
-        user.setPassword(request.getPassword());
-        user.setPassword(encoder.encode(request.getPassword()));
+        userRepository.save(user);
+        log.info(UPDATED_USER);
+        return CommandResponse.builder().id(user.getId()).build();
+    }
+
+    /**
+     * Updates user profile by Full Name (First Name and Last Name fields)
+     *
+     * @param request
+     * @return id of the updated user
+     */
+    public CommandResponse updateFullName(ProfileRequest request) {
+        final User user = userRepository.findById(request.getId())
+                .orElseThrow(() -> new NoSuchElementFoundException(NOT_FOUND_USER));
+
+        user.setFirstName(WordUtils.capitalizeFully(request.getFirstName()));
+        user.setLastName(WordUtils.capitalizeFully(request.getLastName()));
         userRepository.save(user);
         log.info(UPDATED_USER);
         return CommandResponse.builder().id(user.getId()).build();
