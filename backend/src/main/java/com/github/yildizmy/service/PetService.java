@@ -89,7 +89,7 @@ public class PetService {
     @Transactional(readOnly = true)
     public Map<String, Long> findAllByType(TypeSetRequest types) {
         return petRepository.findAll().stream()
-                .filter(x -> types.getIds().contains(x.getType().getId()))
+                .filter(pet -> types.getIds().isEmpty() || types.getIds().contains(pet.getType().getId()))
                 .collect(Collectors.groupingBy(x -> x.getType().getName(), Collectors.counting()));
         // if we need to return TypeResponse instead of String (type names), we can use this:
         // .collect(Collectors.groupingBy(x -> typeResponseMapper.toDto(x.getType()), Collectors.counting()));
