@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Clock;
@@ -36,6 +37,7 @@ public class PetController {
      * @param id
      * @return PetResponse
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<PetResponse>> findById(@PathVariable long id) {
         final PetResponse response = petService.findById(id);
@@ -48,8 +50,9 @@ public class PetController {
      * @param pageable
      * @return List of PetResponse
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
     @GetMapping
-    ResponseEntity<ApiResponse<Page<PetResponse>>> findAll(Pageable pageable) {
+    public ResponseEntity<ApiResponse<Page<PetResponse>>> findAll(Pageable pageable) {
         final Page<PetResponse> response = petService.findAll(pageable);
         return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response));
     }
@@ -60,8 +63,9 @@ public class PetController {
      * @param userId
      * @return List of PetResponse
      */
-    @GetMapping("/userId")
-    ResponseEntity<ApiResponse<List<PetResponse>>> findAllByUserId(@PathVariable long userId) {
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
+    @GetMapping("/users/{userId}")
+    public ResponseEntity<ApiResponse<List<PetResponse>>> findAllByUserId(@PathVariable long userId) {
         final List<PetResponse> response = petService.findAllByUserId(userId);
         return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response));
     }
@@ -72,8 +76,9 @@ public class PetController {
      * @param request
      * @return selected types and count of each type
      */
-    @GetMapping("/types")
-    ResponseEntity<ApiResponse<Map<String, Long>>> findAllByType(@Valid @RequestBody TypeSetRequest request) {
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
+    @PostMapping("/types")
+    public ResponseEntity<ApiResponse<Map<String, Long>>> findAllByType(@Valid @RequestBody TypeSetRequest request) {
         final Map<String, Long> response = petService.findAllByType(request);
         return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response));
     }
@@ -84,6 +89,7 @@ public class PetController {
      * @param request
      * @return id of the created pet
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
     @PostMapping
     public ResponseEntity<ApiResponse<CommandResponse>> create(@Valid @RequestBody PetRequest request) {
         final CommandResponse response = petService.create(request);
@@ -97,6 +103,7 @@ public class PetController {
      *
      * @return id of the updated pet
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
     @PutMapping
     public ResponseEntity<ApiResponse<CommandResponse>> update(@Valid @RequestBody PetRequest request) {
         final CommandResponse response = petService.update(request);
@@ -108,6 +115,7 @@ public class PetController {
      *
      * @param id
      */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<Void>> deleteById(@PathVariable long id) {
         petService.deleteById(id);
