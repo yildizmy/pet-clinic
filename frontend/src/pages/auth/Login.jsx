@@ -44,6 +44,7 @@ const Login = () => {
         localStorage.setItem("tokenKey", response.data.token);
         localStorage.setItem("roles", JSON.stringify(response.data.roles));
         navigate("/");
+        window.location.reload(true);
       })
       .catch((error) => {
         if (error.response?.data?.errors) {
