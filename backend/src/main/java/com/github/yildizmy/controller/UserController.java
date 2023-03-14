@@ -35,7 +35,7 @@ public class UserController {
      * @param id
      * @return UserResponse
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_ADMIN)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<UserResponse>> findById(@PathVariable long id) {
         final UserResponse response = userService.findById(id);
