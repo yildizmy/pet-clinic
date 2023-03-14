@@ -38,14 +38,24 @@ function App() {
             </Route>
 
             <Route path="pets" element={<PrivateRoute />}>
-              <Route index element={<ListPet />} />
-              <Route path="new" element={<NewPet />} />
-              <Route path="edit" element={<EditPet />} />
+              <Route element={<RoleAccess roles={["ROLE_USER"]} />} >
+                <Route index element={<ListPet />} />
+              </Route>
+              <Route element={<RoleAccess roles={["ROLE_USER"]} />} >
+                <Route path="new" element={<NewPet />} />
+              </Route>
+              <Route element={<RoleAccess roles={["ROLE_USER"]} />} >
+                <Route path="edit" element={<EditPet />} />
+              </Route>
             </Route>
 
             <Route path="profile" element={<PrivateRoute />}>
-              <Route index element={<Profile />} />
-              <Route path="edit" element={<EditProfile />} />
+              <Route element={<RoleAccess roles={["ROLE_USER"]} />} >
+                <Route index element={<Profile />} />
+              </Route>
+              <Route element={<RoleAccess roles={["ROLE_USER"]} />} >
+                <Route path="edit" element={<EditProfile />} />
+              </Route>
             </Route>
 
             <Route path="users" element={<PrivateRoute />}>
