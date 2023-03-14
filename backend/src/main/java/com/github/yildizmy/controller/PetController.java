@@ -22,7 +22,7 @@ import java.util.Map;
 
 import static com.github.yildizmy.common.Constants.SUCCESS;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/api/v1/pets")
 @RequiredArgsConstructor
