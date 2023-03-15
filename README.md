@@ -1,9 +1,7 @@
 ## Pet Clinic 
 Full stack web app with React, Spring Boot, Spring Security, Spring Data JPA, Hibernate, PostgreSQL, etc. Used for monitoring and managing vet and pet data.
 
-
 <img src="backend/src/main/resources/docs/images/main_view.png" width="1060"/>
-
 
 <br/>
 
