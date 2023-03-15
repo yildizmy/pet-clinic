@@ -22,11 +22,9 @@ For more information regarding the system requirements, etc. refer to the follow
 
 In order to run the application in development mode, apply the following steps:
 
-
 1. Run Docker desktop.
 
 <br/>
-
 
 
 2. Open command prompt window and clone the project from GitHub using the following command:
@@ -46,7 +44,7 @@ cd pet-clinic
 <br/>
 
 
-4. Run the following command:
+4. Run the following command (by running this command, the database container is built and starts up):
 
 ```
 docker-compose up --build
@@ -54,15 +52,7 @@ docker-compose up --build
 
 <br/>
 
-By running this command, the database container is built and starts up. 
-
-
-<br/>
-
-
-2. Open backend project using IntelliJ IDEA and then select _Run > Edit Configurations_ and add the following values to the Environment variables field. 
-3. 
-
+5. Open backend project using IntelliJ IDEA and then select _Run > Edit Configurations_ and add the following values to the Environment variables field. 
 
 ```
 DB_NAME=pet_clinic;DB_USERNAME=postgres;DB_PASSWORD=pass;JWT_SECRET=appSecretKey
