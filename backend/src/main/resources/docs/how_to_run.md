@@ -101,40 +101,13 @@ role: user
 <br/>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### Running app in Production mode
 
 In order to run the application in production mode, apply the following steps:
 
-
-
-
-
 1. Run Docker desktop.
 
 <br/>
-
-
 
 2. Open command prompt window and clone the project from GitHub using the following command:
 
@@ -143,8 +116,6 @@ git clone https://github.com/yildizmy/pet-clinic.git
 ```
 <br/>
 
-
-
 3. Change the current directory to the project directory where the `docker-compose.yml` file is in:
 
 ```
@@ -152,8 +123,7 @@ cd pet-clinic
 ```
 <br/>
 
-
-4. Run the following command:
+4. Run the following command (by running this command, the app and database containers are built and start up):
 
 ```
 docker compose -f docker-compose.yml -f docker-compose.prod.yml --build
@@ -161,7 +131,12 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml --build
 
 <br/>
 
-By running this command, the app and database containers are built and start up. After this step is completed, the application will be available on http://localhost:3000/.
+
+
+
+
+
+By . After this step is completed, the application will be available on http://localhost:3000/.
 
 <br/>
 
