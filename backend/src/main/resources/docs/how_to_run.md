@@ -125,11 +125,17 @@ cd pet-clinic
 
 4. Run the following command (by running this command, the app and database containers are built and start up):
 
+> **Warning** Before running this command, delete previously composed containers belonging to the application (db, backend and frontend).
+
 ```
 docker compose -f docker-compose.yml -f docker-compose.prod.yml up
 ```
 
 <br/>
+
+
+
+
 
 
 After this step is completed, the application will be available on http://localhost:3000/.
@@ -142,7 +148,7 @@ After this step is completed, the application will be available on http://localh
 
 ### Troubleshooting
 
-* If there is any process using the same port of the application, _"ports are not available"_ or _"port is already in use"_ errors might be encountered. 
+If there is any process using the same port of the application, _"ports are not available"_ or _"port is already in use"_ errors might be encountered. 
 In this situation, terminating that process and restarting the related containers will fix the problem. If the problem continues, 
 delete the containers (db, backend and frontend) and re-run the `docker compose` command in the previous step. 
 
