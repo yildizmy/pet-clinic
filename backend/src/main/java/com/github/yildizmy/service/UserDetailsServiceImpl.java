@@ -15,13 +15,10 @@ import org.springframework.stereotype.Service;
  * Service used for UserDetails related operations
  */
 @Service
+@RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final UserRepository userRepository;
-
-    public UserDetailsServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Override
     @Transactional
