@@ -128,7 +128,7 @@ cd pet-clinic
 > **Warning** Before running this command, delete previously composed containers belonging to the application (db, backend and frontend).
 
 ```
-docker compose -f docker-compose.yml -f docker-compose.prod.yml up
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build
 ```
 
 <br/>
