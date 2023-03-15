@@ -4,6 +4,7 @@ import com.github.yildizmy.security.AuthEntryPointJwt;
 import com.github.yildizmy.security.AuthTokenFilter;
 import com.github.yildizmy.service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,12 +25,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-@RequiredArgsConstructor
 public class SecurityConfig {
 
     private final UserDetailsServiceImpl userDetailsService;
-
     private final AuthEntryPointJwt authEntryPointJwt;
+
+    public SecurityConfig(UserDetailsServiceImpl userDetailsService, AuthEntryPointJwt authEntryPointJwt) {
+        this.userDetailsService = userDetailsService;
+        this.authEntryPointJwt = authEntryPointJwt;
+    }
 
     private static final String[] AUTH_WHITELIST = {
             "/api/v1/auth/**",
