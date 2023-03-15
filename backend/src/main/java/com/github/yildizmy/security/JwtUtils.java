@@ -13,8 +13,8 @@ import static com.github.yildizmy.common.Constants.*;
 /**
  * Utility class for Jwt related tasks
  */
-@Component
 @Slf4j(topic = "JwtUtils")
+@Component
 public class JwtUtils {
 
     @Value("${app.security.jwtSecret}")
