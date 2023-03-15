@@ -80,7 +80,6 @@ npm start
 
 Then the application starts on http://localhost:3000/ and will be opened on your default browser. After this step, the application can be used by one of the accounts below:
 Alternatively, API requests can be sent to the endpoints using Postman, etc. For this purpose, see the details on [How to test?](how_to_test.md) section.
-
 <br/>
 
 ### User Accounts
