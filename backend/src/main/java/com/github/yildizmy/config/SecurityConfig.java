@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -23,17 +24,27 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * Configuration file used to configure security settings of the application
  */
 @Configuration
-@EnableWebSecurity
-@EnableMethodSecurity
+// @EnableWebSecurity
+// @EnableMethodSecurity
+@EnableGlobalMethodSecurity(
+        // securedEnabled = true,
+        // jsr250Enabled = true,
+        prePostEnabled = true)
 public class SecurityConfig {
 
-    private final UserDetailsServiceImpl userDetailsService;
-    private final AuthEntryPointJwt authEntryPointJwt;
+    @Autowired
+    UserDetailsServiceImpl userDetailsService;
 
-    public SecurityConfig(UserDetailsServiceImpl userDetailsService, AuthEntryPointJwt authEntryPointJwt) {
-        this.userDetailsService = userDetailsService;
-        this.authEntryPointJwt = authEntryPointJwt;
-    }
+    @Autowired
+    private AuthEntryPointJwt authEntryPointJwt;
+
+    // private final UserDetailsServiceImpl userDetailsService;
+    // private final AuthEntryPointJwt authEntryPointJwt;
+    //
+    // public SecurityConfig(UserDetailsServiceImpl userDetailsService, AuthEntryPointJwt authEntryPointJwt) {
+    //     this.userDetailsService = userDetailsService;
+    //     this.authEntryPointJwt = authEntryPointJwt;
+    // }
 
     private static final String[] AUTH_WHITELIST = {
             "/api/v1/auth/**",
