@@ -26,7 +26,7 @@ In order to run and test the application, see details on [How to run?](backend/s
 Here is the screenshots of an application page:
 
 
-<img src="images/main_view.png" width="1060"/>
+<img src="backend/src/main/resources/docs/images/main_view.png" width="1060"/>
 
 
 <br/>
