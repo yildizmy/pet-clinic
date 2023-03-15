@@ -18,8 +18,6 @@ For more information regarding the system requirements, etc. refer to the follow
 
 <br/>
 
-
-
 ### Running app in Development mode
 
 In order to run the application in development mode, apply the following steps:
