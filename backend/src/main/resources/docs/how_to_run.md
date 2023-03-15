@@ -78,7 +78,7 @@ npm start
 
 <br/>
 
-Then the application starts on http://localhost:3000/ and will be opened on your default browser. After this step, the application can be used by one of the accounts below:
+Then the application starts on http://localhost:3000/ and will be opened on your default browser. At this step, the application can be used by one of the accounts below:
 Alternatively, API requests can be sent to the endpoints using Postman, etc. For this purpose, see the details on [How to test?](how_to_test.md) section.
 <br/>
 
@@ -126,23 +126,15 @@ cd pet-clinic
 4. Run the following command (by running this command, the app and database containers are built and start up):
 
 ```
-docker compose -f docker-compose.yml -f docker-compose.prod.yml --build
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up
 ```
 
 <br/>
 
 
-
-
-
-
-By . After this step is completed, the application will be available on http://localhost:3000/.
+After this step is completed, the application will be available on http://localhost:3000/.
 
 <br/>
-
-
-
-
 
 
 
@@ -150,8 +142,9 @@ By . After this step is completed, the application will be available on http://l
 
 ### Troubleshooting
 
-* If there is any process using the same port of with the application (port 3000), _"port is already in use"_ error is
-  encountered. In this situation, terminating that process and restarting the related containers will fix the problem. 
+* If there is any process using the same port of the application, _"ports are not available"_ or _"port is already in use"_ errors might be encountered. 
+In this situation, terminating that process and restarting the related containers will fix the problem. If the problem continues, 
+delete the containers (db, backend and frontend) and re-run the `docker compose` command in the previous step. 
 
 <br/>
 
