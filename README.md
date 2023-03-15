@@ -3,7 +3,6 @@ Full stack web app with React, Spring Boot, Spring Security, Spring Data JPA, Hi
 
 <img src="backend/src/main/resources/docs/images/main_view.png" width="1060"/>
 
-<br/>
 
 ### Description
 This application allows users to register and login to the system using their credentials. Users can add any amount of their pets 
