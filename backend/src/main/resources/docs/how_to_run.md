@@ -57,16 +57,11 @@ docker-compose up --build
 ```
 DB_NAME=pet_clinic;DB_USERNAME=postgres;DB_PASSWORD=pass;JWT_SECRET=appSecretKey
 ```
-
-
-
 <br/>
 
 > **Note** If Environment variables field is not available, it can be added via Modify options menu on the _Rub/Debug Configurations_ dialog.
 
 <br/>
-
-
 
 3. Open command prompt window. Change the current directory to the frontend project directory and run the frontend application via this command:
 
