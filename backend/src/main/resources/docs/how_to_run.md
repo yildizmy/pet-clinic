@@ -63,7 +63,14 @@ DB_NAME=pet_clinic;DB_USERNAME=postgres;DB_PASSWORD=pass;JWT_SECRET=appSecretKey
 
 <br/>
 
-3. Open command prompt window. Change the current directory to the frontend project directory and run the frontend application via this command:
+6. Change the current directory to the frontend project directory on command prompt window:
+
+```
+cd frontend
+```
+<br/>
+
+7. Run the frontend application via this command:
 
 ```
 npm start
@@ -71,8 +78,7 @@ npm start
 
 <br/>
 
-
-4. Then the application starts on http://localhost:3000/ and will be opened on your default browser. After this step, API requests can be sent to the endpoints.
+8. Then the application starts on http://localhost:3000/ and will be opened on your default browser. After this step, API requests can be sent to the endpoints.
    For this purpose, see the details on [How to test?](how_to_test.md) section.
 
 <br/>
