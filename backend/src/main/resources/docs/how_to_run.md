@@ -78,7 +78,7 @@ npm start
 
 <br/>
 
-8. Then the application starts on http://localhost:3000/ and will be opened on your default browser. After this step, API requests can be sent to the endpoints.
+Then the application starts on http://localhost:3000/ and will be opened on your default browser. After this step, API requests can be sent to the endpoints.
    For this purpose, see the details on [How to test?](how_to_test.md) section.
 
 <br/>
