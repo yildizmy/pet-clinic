@@ -10,3 +10,5 @@ INSERT INTO public.pet (id, "name", type_id, user_id) VALUES (9, 'Jack', 3, 2);
 INSERT INTO public.pet (id, "name", type_id, user_id) VALUES (10, 'Tom', 2, 3);
 INSERT INTO public.pet (id, "name", type_id, user_id) VALUES (11, 'Felix', 2, 3);
 INSERT INTO public.pet (id, "name", type_id, user_id) VALUES (12, 'Spike', 3, 3);
+
+SELECT setval('sequence_pet', max(id)) FROM public."pet";
