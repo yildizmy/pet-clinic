@@ -5,12 +5,10 @@ The application can be run in development or production mode by applying the fol
 
 ### Prerequisites
 
-The following apps and tools should be installed before running the application:
+The following apps should be installed before running the application:
 
 - A command line app
-
-- Docker Desktop. 
-
+- Docker Desktop 
 
 For more information regarding the system requirements, etc. refer to the following pages:
 
