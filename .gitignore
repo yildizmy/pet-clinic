@@ -1,3 +1,5 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files
+
 HELP.md
 backend/target/
 backend/logs/
@@ -57,18 +59,18 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-.vscode/
+frontend/.vscode/
 
 # dependencies
-/frontend/node_modules
-/.pnp
-.pnp.js
+frontend/node_modules
+frontend/.pnp
+frontend/.pnp.js
 
 # testing
-/coverage
+frontend/coverage
 
 # production
-/build
+frontend/build
 
 # misc
 .DS_Store
