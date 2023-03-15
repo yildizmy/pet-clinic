@@ -78,81 +78,23 @@ npm start
 
 <br/>
 
-Then the application starts on http://localhost:3000/ and will be opened on your default browser. After this step, API requests can be sent to the endpoints.
-   For this purpose, see the details on [How to test?](how_to_test.md) section.
-
-<br/>
+Then the application starts on http://localhost:3000/ and will be opened on your default browser. 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Running app in Production mode
-
-In order to run the application in production mode, apply the following steps:
-
-
-
-
-
-1. Run Docker desktop.
-
-<br/>
-
-
-
-2. Open command prompt window and clone the project from GitHub using the following command:
+> **Note** After this step, the application can be used by using one of the admin accounts below:
 
 ```
-git clone https://github.com/yildizmy/pet-clinic.git
-```
-<br/>
+username: johndoe
+password: johnd@e
 
+username: lindacalvin
+password: lindac@lvin
 
-
-3. Change the current directory to the project directory where the `docker-compose.yml` file is in:
-
-```
-cd pet-clinic
-```
-<br/>
-
-
-4. Run the following command:
-
-```
-docker compose -f docker-compose.yml -f docker-compose.prod.yml --build
+username: jeffreytaylor
+password: jeffreyt@ylor
 ```
 
-<br/>
-
-By running this command, the app and database containers are built and start up. After this step is completed, the application will be available on http://localhost:3000/.
-
-<br/>
-
-
-
-
-
-
+Alternatively, API requests can be sent to the endpoints using Postman, etc. For this purpose, see the details on [How to test?](how_to_test.md) section.
 
 <br/>
 
