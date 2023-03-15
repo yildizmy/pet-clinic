@@ -2,6 +2,11 @@
 Full stack web app with React, Spring Boot, Spring Security, DataJPA, Hibernate, PostgreSQL, etc. Used for monitoring and managing vet and pet data.
 
 
+<img src="backend/src/main/resources/docs/images/main_view.png" width="1060"/>
+
+
+<br/>
+
 ### Description
 This application allows users to register and login to the system using their credentials. Users can add any amount of their pets 
 by providing name and type data.
@@ -21,15 +26,7 @@ The information about the domain model is shown on [Entity Relationship Diagram]
 
 In order to run and test the application, see details on [How to run?](backend/src/main/resources/docs/how_to_run.md) and [How to test?](backend/src/main/resources/docs/how_to_test.md) sections.
 
-### Screenshots
 
-Here is the screenshots of an application page:
-
-
-<img src="backend/src/main/resources/docs/images/main_view.png" width="1060"/>
-
-
-<br/>
 
 
 ### Dependencies
