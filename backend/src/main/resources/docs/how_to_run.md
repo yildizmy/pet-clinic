@@ -59,7 +59,7 @@ DB_NAME=pet_clinic;DB_USERNAME=postgres;DB_PASSWORD=pass;JWT_SECRET=appSecretKey
 ```
 <br/>
 
-> **Note** If Environment variables field is not available, it can be added via Modify options menu on the _Rub/Debug Configurations_ dialog.
+> **Note** If the _Environment variables_ field is not available, it can be added via _Modify options_ menu on the _Rub/Debug Configurations_ dialog.
 
 <br/>
 
