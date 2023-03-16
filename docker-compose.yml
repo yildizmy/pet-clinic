@@ -5,6 +5,7 @@ services:
     container_name: pet-clinic-db
     image: postgres:14.6-alpine
     restart: always
+    env_file: ./.env
     environment:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USERNAME}

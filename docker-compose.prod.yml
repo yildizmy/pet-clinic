@@ -5,6 +5,7 @@ services:
     container_name: pet-clinic-frontend
     build: ./frontend
     restart: always
+    env_file: ./.env
     ports:
       - '3000:3000'
     depends_on:
@@ -20,6 +21,7 @@ services:
   backend:
     container_name: pet-clinic-backend
     build: ./backend
+    env_file: ./.env
     restart: always
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${DB_NAME}
