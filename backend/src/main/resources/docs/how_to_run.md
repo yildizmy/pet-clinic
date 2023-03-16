@@ -59,14 +59,14 @@ DB_NAME=pet_clinic;DB_USERNAME=postgres;DB_PASSWORD=pass;JWT_SECRET=appSecretKey
 ```
 <br/>
 
-> **Note** If the _Environment variables_ field is not available, it can be added via _Modify options_ menu on the _Rub/Debug Configurations_ dialog.
+> **Note** If the _Environment variables_ field is not available, it can be added via _Modify options_ menu on the _Rub/Debug Configurations_ dialog (Alt + E).
 
 <br/>
 
-6. Change the current directory to the frontend project directory on command prompt window:
+6. Open another command prompt window or tab and change the current directory to the frontend project:
 
 ```
-cd frontend
+cd pet-clinic\frontend
 ```
 <br/>
 
