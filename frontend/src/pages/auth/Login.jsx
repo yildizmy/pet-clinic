@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { postWithoutAuth } from "../../services/HttpService";
+import AuthService from "../../services/AuthService";
 import "./auth.scss";
 
 const Login = () => {
@@ -37,14 +37,9 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    postWithoutAuth("/auth/login", formValues, enqueueSnackbar)
+    AuthService.login(formValues)
       .then((response) => {
-        localStorage.setItem("currentUser", response.data.id);
-        localStorage.setItem("username", response.data.username);
-        localStorage.setItem("tokenKey", response.data.token);
-        localStorage.setItem("roles", JSON.stringify(response.data.roles));
         navigate("/");
-        window.location.reload(true);
       })
       .catch((error) => {
         if (error.response?.data?.errors) {
