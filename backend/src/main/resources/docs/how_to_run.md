@@ -64,10 +64,10 @@ Then close the dialog and run the application.
 
 <br/>
 
-6. Open another command prompt window or tab and change the current directory to the frontend project:
+6. Open another command prompt window/tab and change the current directory to the frontend project:
 
 ```
-cd pet-clinic\frontend
+cd pet-clinic/frontend
 ```
 <br/>
 
@@ -79,7 +79,7 @@ npm start
 
 <br/>
 
-Then the application starts on http://localhost:3000/ and will be opened on your default browser. At this step, the application can be used by one of the accounts below:
+Then the application starts on http://localhost:3000/ and will be opened on your default browser. At this step, the application can be used by one of the accounts below.
 Alternatively, API requests can be sent to the endpoints using Postman, etc. For this purpose, see the details on [How to test?](how_to_test.md) section.
 <br/>
 
