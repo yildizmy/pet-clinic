@@ -49,14 +49,14 @@ public class AuthService {
      * @return JwtResponse
      */
     public JwtResponse login(LoginRequest request) {
-        Authentication authentication = authenticationManager.authenticate(
+        final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getUsername().trim(), request.getPassword().trim()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
 
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        List<String> roles = userDetails.getAuthorities().stream()
+        final UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        final List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .toList();
         return JwtResponse.builder().token(jwt).id(userDetails.getId()).username(userDetails.getUsername()).roles(roles).build();

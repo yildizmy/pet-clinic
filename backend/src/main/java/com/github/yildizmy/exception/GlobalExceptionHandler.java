@@ -48,7 +48,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                                   HttpStatusCode statusCode,
                                                                   WebRequest request) {
         log.error(METHOD_ARGUMENT_NOT_VALID, ex);
-        ErrorResponse errorResponse = new ErrorResponse(HttpStatus.UNPROCESSABLE_ENTITY.value(), VALIDATION_ERROR);
+        final ErrorResponse errorResponse = new ErrorResponse(HttpStatus.UNPROCESSABLE_ENTITY.value(), VALIDATION_ERROR);
         for (FieldError fieldError : ex.getBindingResult().getFieldErrors()) {
             errorResponse.addValidationError(fieldError.getField(), fieldError.getDefaultMessage());
         }
@@ -124,7 +124,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                       String message,
                                                       HttpStatusCode statusCode,
                                                       WebRequest request) {
-        ErrorResponse errorResponse = new ErrorResponse(statusCode.value(), message);
+        final ErrorResponse errorResponse = new ErrorResponse(statusCode.value(), message);
         if (printStackTrace && isTraceOn(request)) {
             errorResponse.setStackTrace(ExceptionUtils.getStackTrace(ex));
         }
