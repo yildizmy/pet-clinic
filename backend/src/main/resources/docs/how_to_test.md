@@ -11,11 +11,14 @@ for testing the endpoints.
 
 > **Note** All URIs are relative to *http://localhost:8080/api/v1*
 
+<br/>
+
 | Class            | Method                                          | HTTP request   | Description                                           |
 |------------------|-------------------------------------------------|----------------|-------------------------------------------------------|
 | *AuthController* | [**login**](http://localhost:8080/api/v1/auth)  | **POST** /auth | Authenticates users by their credentials              |
 | *AuthController* | [**signup**](http://localhost:8080/api/v1/auth) | **POST** /auth | Registers users using their credentials and user info |
 
+<br/>
 <br/>
 
 | Class           | Method                                                            | HTTP request           | Description                                          |
@@ -29,6 +32,7 @@ for testing the endpoints.
 | *PetController* | [**deleteById**](http://localhost:8080/api/v1/pets/{id})          | **DELETE** /pets       | Deletes pet by id                                    |
 
 <br/>
+<br/>
 
 | Class            | Method                                                    | HTTP request        | Description                                           |
 |------------------|-----------------------------------------------------------|---------------------|-------------------------------------------------------|
@@ -38,6 +42,7 @@ for testing the endpoints.
 | *TypeController* | [**update**](http://localhost:8080/api/v1/types)          | **PUT** /types      | Updates type using the given request parameters       |
 | *TypeController* | [**deleteById**](http://localhost:8080/api/v1/types/{id}) | **DELETE** /types   | Deletes type by id                                    |
 
+<br/>
 <br/>
 
 | Class            | Method                                                           | HTTP request           | Description                                                         |
