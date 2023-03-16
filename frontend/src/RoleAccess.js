@@ -1,10 +1,11 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import AuthService from "./services/AuthService";
 
 const RoleAccess = ({ roles = [] }) => {
-  const userRoles = localStorage.getItem("roles");
+  const userRoles = AuthService.getCurrentUser()?.roles;
 
-  return !roles.length || roles.some(r => userRoles.includes(r)) ? (
+  return !roles.length || roles.some((r) => userRoles.includes(r)) ? (
     <Outlet />
   ) : (
     <Navigate to="/unauthorized" replace />
