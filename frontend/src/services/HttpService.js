@@ -1,37 +1,37 @@
 import axios from "./axios";
+import AuthHeader from "./AuthHeader";
 
-const AUTH_TOKEN = localStorage.getItem("tokenKey");
-const config = {
-  headers: {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Credentials": true,
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    Authorization: `Bearer ${AUTH_TOKEN}`
-  },
-};
-
-export const getWithAuth = (url) => {
-  const request = axios.get(url, config);
-  return request.then((response) => response.data);
-};
-
-export const postWithoutAuth = (url, body) => {
+const postWithoutAuth = (url, body) => {
   const request = axios.post(url, body);
   return request.then((response) => response.data);
 };
 
-export const postWithAuth = (url, body) => {
-  const request = axios.post(url, body, config);
+const getWithAuth = (url) => {
+  const request = axios.get(url, { headers: AuthHeader() });
   return request.then((response) => response.data);
 };
 
-export const putWithAuth = (url, body) => {
-  const request = axios.put(url, body, config);
+const postWithAuth = (url, body) => {
+  const request = axios.post(url, body, { headers: AuthHeader() });
   return request.then((response) => response.data);
 };
 
-export const deleteWithAuth = (url) => {
-  const request = axios.delete(url, config);
+const putWithAuth = (url, body) => {
+  const request = axios.put(url, body, { headers: AuthHeader() });
   return request.then((response) => response.data);
 };
+
+const deleteWithAuth = (url) => {
+  const request = axios.delete(url, { headers: AuthHeader() });
+  return request.then((response) => response.data);
+};
+
+const HttpService = {
+  postWithoutAuth,
+  getWithAuth,
+  postWithAuth,
+  putWithAuth,
+  deleteWithAuth,
+};
+
+export default HttpService;
