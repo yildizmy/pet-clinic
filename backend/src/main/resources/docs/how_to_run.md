@@ -133,16 +133,12 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build
 
 <br/>
 
-
-
-
-
-
-After this step is completed, the application will be available on http://localhost:3000/.
+After this step is completed, the application will be available on http://localhost:3000/. 
+At this step, the application can be used by one of the accounts given in the "User Accounts" section. 
+Alternatively, API requests can be sent to the endpoints using Postman, etc. 
+For this purpose, see the details on [How to test?](how_to_test.md) section.
 
 <br/>
-
-
 
 <br/>
 
