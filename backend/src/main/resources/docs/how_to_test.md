@@ -48,7 +48,7 @@ for testing the endpoints.
 | Class            | Method                                                           | HTTP request          | Description                                                         |
 |------------------|------------------------------------------------------------------|-----------------------|---------------------------------------------------------------------|
 | *UserController* | [**findById**](http://localhost:8080/api/v1/users/{id})          | **GET** /users/{id}   | Retrieves a single user by the given id                             |
-| *UserController* | [**findAll**](http://localhost:8080/api/v1/users)                | **GET** /users?page=0&size=10&sort=id,asc        | Retrieves all users based on the given parameters                   |
+| *UserController* | [**findAll**](http://localhost:8080/api/v1/users)         | **GET** /users?page=0&size=10&sort=id,asc | Retrieves all users based on the given parameters     |
 | *UserController* | [**create**](http://localhost:8080/api/v1/users)                 | **POST** /users       | Creates a new user using the given request parameters               |
 | *UserController* | [**update**](http://localhost:8080/api/v1/users)                 | **PUT** /users        | Updates user using the given request parameters                     |
 | *UserController* | [**updateFullName**](http://localhost:8080/api/v1/users/profile) | **PUT** /users/profile | Updates user profile by Full Name (First Name and Last Name fields) |
