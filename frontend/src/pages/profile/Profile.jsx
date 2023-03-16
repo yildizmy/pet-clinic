@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { getWithAuth } from "../../services/HttpService";
+import AuthService from "../../services/AuthService";
+import HttpService from "../../services/HttpService";
 import "./profile.scss";
 
 const Profile = () => {
@@ -12,8 +13,8 @@ const Profile = () => {
   const [user, setUser] = useState("currentUser");
 
   useEffect(() => {
-    const userId = localStorage.getItem("currentUser");
-    getWithAuth("/users/" + userId)
+    const userId = AuthService.getCurrentUser()?.id;
+    HttpService.getWithAuth("/users/" + userId)
       .then((response) => {
         setUser(response.data);
       })
