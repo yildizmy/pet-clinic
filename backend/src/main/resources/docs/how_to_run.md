@@ -60,8 +60,8 @@ DB_NAME=pet_clinic;DB_USERNAME=postgres;DB_PASSWORD=pass;JWT_SECRET=appSecretKey
 
 > **Note** If the _Environment variables_ field is not available, it can be added via _Modify options_ menu on the _Rub/Debug Configurations_ dialog (Alt + E).
 
-<br/>
 Then close the dialog and run the application.
+
 <br/>
 
 6. Open another command prompt window or tab and change the current directory to the frontend project:
