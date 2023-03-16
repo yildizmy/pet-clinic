@@ -4,13 +4,11 @@ import com.github.yildizmy.security.AuthEntryPointJwt;
 import com.github.yildizmy.security.AuthTokenFilter;
 import com.github.yildizmy.service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -24,27 +22,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * Configuration file used to configure security settings of the application
  */
 @Configuration
-// @EnableWebSecurity
-// @EnableMethodSecurity
-@EnableGlobalMethodSecurity(
-        // securedEnabled = true,
-        // jsr250Enabled = true,
-        prePostEnabled = true)
+@EnableWebSecurity
+@EnableMethodSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
 
-    @Autowired
-    UserDetailsServiceImpl userDetailsService;
-
-    @Autowired
-    private AuthEntryPointJwt authEntryPointJwt;
-
-    // private final UserDetailsServiceImpl userDetailsService;
-    // private final AuthEntryPointJwt authEntryPointJwt;
-    //
-    // public SecurityConfig(UserDetailsServiceImpl userDetailsService, AuthEntryPointJwt authEntryPointJwt) {
-    //     this.userDetailsService = userDetailsService;
-    //     this.authEntryPointJwt = authEntryPointJwt;
-    // }
+    private final UserDetailsServiceImpl userDetailsService;
+    private final AuthEntryPointJwt authEntryPointJwt;
 
     private static final String[] AUTH_WHITELIST = {
             "/api/v1/auth/**",
