@@ -3,11 +3,12 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Tooltip } from "@mui/material";
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
+import AuthService from "../../services/AuthService";
 import "./navbar.scss";
 
 const Navbar = () => {
   const { dispatch } = useContext(DarkModeContext);
-  const username = localStorage.getItem("username");
+  const username = AuthService.getCurrentUser()?.username;
 
   return (
     <div className="navbar-wrapper">
