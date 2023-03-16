@@ -52,12 +52,14 @@ docker-compose up --build
 
 <br/>
 
-5. Open backend project using IntelliJ IDEA and then select _Run > Edit Configurations_ and add the following values to the _Environment variables_ field. Then run the application. 
+5. Open backend project using IntelliJ IDEA and then select _Run > Edit Configurations_ and add the following values to the _Environment variables_ field.  
 
 ```
 DB_NAME=pet_clinic;DB_USERNAME=postgres;DB_PASSWORD=pass;JWT_SECRET=appSecretKey
 ```
 <br/>
+
+Then run the application.
 
 > **Note** If the _Environment variables_ field is not available, it can be added via _Modify options_ menu on the _Rub/Debug Configurations_ dialog (Alt + E).
 
