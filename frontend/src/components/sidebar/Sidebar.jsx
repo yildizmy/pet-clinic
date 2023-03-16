@@ -7,17 +7,14 @@ import PetsIcon from "@mui/icons-material/Pets";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
+import AuthService from "../../services/AuthService";
 import "./sidebar.scss";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
   const navigate = useNavigate();
-  const userRoles = localStorage.getItem("roles");
+  const userRoles = AuthService.getCurrentUser()?.roles;
   const isAdmin = userRoles.includes("ROLE_ADMIN");
-
-  const handleLogout = () => {
-    localStorage.clear();
-  };
 
   return (
     <div className="sidebar">
@@ -40,21 +37,23 @@ const Sidebar = () => {
               <span>Home</span>
             </li>
           </Link>
-           {isAdmin &&
-           <div>
-           <p className="title">ADMIN</p>
-          <Link to="/users" style={{ textDecoration: "none" }}>
-            <li>
-              <PersonOutlineIcon className="icon" />
-              <span onClick={() => navigate("/users")}>Users</span>
-            </li>
-          </Link>
-          <Link to="/statistics" style={{ textDecoration: "none" }}>
-            <li>
-              <InsertChartIcon className="icon" />
-              <span>Statistics</span>
-            </li>
-          </Link></div>}
+          {isAdmin && (
+            <div>
+              <p className="title">ADMIN</p>
+              <Link to="/users" style={{ textDecoration: "none" }}>
+                <li>
+                  <PersonOutlineIcon className="icon" />
+                  <span onClick={() => navigate("/users")}>Users</span>
+                </li>
+              </Link>
+              <Link to="/statistics" style={{ textDecoration: "none" }}>
+                <li>
+                  <InsertChartIcon className="icon" />
+                  <span>Statistics</span>
+                </li>
+              </Link>
+            </div>
+          )}
           <p className="title">USER</p>
           <Link to="/profile" style={{ textDecoration: "none" }}>
             <li>
@@ -70,7 +69,7 @@ const Sidebar = () => {
           </Link>
           <Link
             to="/login"
-            onClick={handleLogout}
+            onClick={() => AuthService.logout()}
             style={{ textDecoration: "none" }}
           >
             <li>
