@@ -37,7 +37,7 @@ for testing the endpoints.
 | Class            | Method                                                    | HTTP request        | Description                                           |
 |------------------|-----------------------------------------------------------|---------------------|-------------------------------------------------------|
 | *TypeController* | [**findById**](http://localhost:8080/api/v1/types/{id})   | **GET** /types/{id} | Retrieves a single type by the given id               |
-| *TypeController* | [**findAll**](http://localhost:8080/api/v1/types)         | **GET** /types?page=0&size=10&sort=id,asc      | Retrieves all types based on the given parameters     |
+| *TypeController* | [**findAll**](http://localhost:8080/api/v1/types)         | **GET** /types?page=0&size=10&sort=id,asc | Retrieves all types based on the given parameters     |
 | *TypeController* | [**create**](http://localhost:8080/api/v1/types)          | **POST** /types     | Creates a new type using the given request parameters |
 | *TypeController* | [**update**](http://localhost:8080/api/v1/types)          | **PUT** /types      | Updates type using the given request parameters       |
 | *TypeController* | [**deleteById**](http://localhost:8080/api/v1/types/{id}) | **DELETE** /types   | Deletes type by id                                    |
