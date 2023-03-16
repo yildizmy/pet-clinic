@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { getWithAuth, putWithAuth } from "../../services/HttpService";
+import HttpService from "../../services/HttpService";
 import "./pet.scss";
 
 const EditPet = () => {
@@ -32,7 +32,7 @@ const EditPet = () => {
 
   useEffect(() => {
     const getTypes = async () => {
-      const response = await getWithAuth("/types");
+      const response = await HttpService.getWithAuth("/types");
       const types = await response.data.content;
       setTypes(types);
     };
@@ -49,7 +49,7 @@ const EditPet = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    putWithAuth("/pets", formValues)
+    HttpService.putWithAuth("/pets", formValues)
       .then((response) => {
         enqueueSnackbar("Pet updated successfully", { variant: "success" });
         navigate("/pets");

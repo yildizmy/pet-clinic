@@ -13,15 +13,18 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { getWithAuth, postWithAuth } from "../../services/HttpService";
+import AuthService from "../../services/AuthService";
+import HttpService from "../../services/HttpService";
 import "./pet.scss";
+
+const userId = AuthService.getCurrentUser()?.id;
 
 const NewPet = () => {
   const pageTitle = "Add New Pet";
   const defaultValues = {
     name: "",
     typeId: "",
-    userId: localStorage.getItem("currentUser"),
+    userId: userId,
   };
 
   const { enqueueSnackbar } = useSnackbar();
@@ -31,7 +34,7 @@ const NewPet = () => {
 
   useEffect(() => {
     const getTypes = async () => {
-      const response = await getWithAuth("/types");
+      const response = await HttpService.getWithAuth("/types");
       const types = await response.data.content;
       setTypes(types);
     };
@@ -48,7 +51,7 @@ const NewPet = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    postWithAuth("/pets", formValues)
+    HttpService.postWithAuth("/pets", formValues)
       .then((response) => {
         enqueueSnackbar("Pet created successfully", { variant: "success" });
         navigate("/pets");

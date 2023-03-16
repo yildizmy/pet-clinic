@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { postWithoutAuth } from "../../services/HttpService";
+import AuthService from "../../services/AuthService";
 
 const Register = () => {
   const defaultValues = {
@@ -47,7 +47,7 @@ const Register = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    postWithoutAuth("/auth/signup", formValues)
+    AuthService.signup(formValues)
       .then((response) => {
         enqueueSnackbar("Signed up successfully", { variant: "success" });
         navigate("/login");

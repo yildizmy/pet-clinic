@@ -11,7 +11,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { putWithAuth } from "../../services/HttpService";
+import HttpService from "../../services/HttpService";
 import "./user.scss";
 
 const EditUser = () => {
@@ -51,7 +51,7 @@ const EditUser = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    putWithAuth("/users", formValues)
+    HttpService.putWithAuth("/users", formValues)
       .then((response) => {
         enqueueSnackbar("User updated successfully", { variant: "success" });
         navigate("/users");
@@ -109,20 +109,6 @@ const EditUser = () => {
                   onChange={handleInputChange}
                 />
               </Grid>
-              {/* <Grid item>
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="password"
-                  label="Password"
-                  name="password"
-                  type="password"
-                  autoComplete="password"
-                  value={formValues.password}
-                  onChange={handleInputChange}
-                />
-              </Grid> */}
             </Grid>
             <Grid item>
               <FormControlLabel

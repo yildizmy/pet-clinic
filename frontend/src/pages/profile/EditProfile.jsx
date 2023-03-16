@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { putWithAuth } from "../../services/HttpService";
+import HttpService from "../../services/HttpService";
 import "./profile.scss";
 
 const EditProfile = () => {
@@ -29,7 +29,7 @@ const EditProfile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    putWithAuth("/users/profile", formValues)
+    HttpService.putWithAuth("/users/profile", formValues)
       .then((response) => {
         enqueueSnackbar("User updated successfully", { variant: "success" });
         navigate("/profile");
@@ -87,20 +87,6 @@ const EditProfile = () => {
                   onChange={handleInputChange}
                 />
               </Grid>
-              {/* <Grid item>
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="password"
-                  label="Password"
-                  name="password"
-                  type="password"
-                  autoComplete="password"
-                  value={formValues.password}
-                  onChange={handleInputChange}
-                />
-              </Grid> */}
             </Grid>
             <Stack spacing={2} sx={{ py: 3, paddingRight: 0 }} direction="row">
               <Button

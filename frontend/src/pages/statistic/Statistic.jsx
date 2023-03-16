@@ -18,7 +18,7 @@ import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { getWithAuth, postWithAuth } from "../../services/HttpService";
+import HttpService from "../../services/HttpService";
 import "./statistic.scss";
 
 const ITEM_HEIGHT = 48;
@@ -41,7 +41,7 @@ const Statistic = () => {
 
   useEffect(() => {
     const getTypes = async () => {
-      const response = await getWithAuth("/types");
+      const response = await HttpService.getWithAuth("/types");
       const types = await response.data.content;
       setTypes(types);
     };
@@ -56,7 +56,7 @@ const Statistic = () => {
         }) || [],
     };
 
-    postWithAuth("/pets/types", body)
+    HttpService.postWithAuth("/pets/types", body)
       .then((response) => {
         setData(response.data);
       })

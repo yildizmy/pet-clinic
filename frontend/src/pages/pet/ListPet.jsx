@@ -12,7 +12,8 @@ import { useNavigate } from "react-router-dom";
 import Datatable from "../../components/datatable/Datatable";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { deleteWithAuth, getWithAuth } from "../../services/HttpService";
+import AuthService from "../../services/AuthService";
+import HttpService from "../../services/HttpService";
 import { petColumns } from "./fields";
 
 const ListPet = () => {
@@ -28,8 +29,8 @@ const ListPet = () => {
   }, []);
 
   const fetchData = () => {
-    const userId = localStorage.getItem("currentUser");
-    getWithAuth("/pets/users/" + userId)
+    const userId = AuthService.getCurrentUser()?.id;
+    HttpService.getWithAuth("/pets/users/" + userId)
       .then((response) => {
         setData(response.data);
       })
@@ -62,7 +63,7 @@ const ListPet = () => {
   };
 
   const handleDelete = () => {
-    deleteWithAuth("/pets/" + id)
+    HttpService.deleteWithAuth("/pets/" + id)
       .then((res) => {
         fetchData();
         setOpen(false);

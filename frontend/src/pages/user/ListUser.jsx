@@ -17,7 +17,7 @@ import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { getWithAuth } from "../../services/HttpService";
+import HttpService from "../../services/HttpService";
 import "./user.scss";
 
 const ListUser = () => {
@@ -30,7 +30,7 @@ const ListUser = () => {
   }, []);
 
   const fetchData = () => {
-    getWithAuth("/users")
+    HttpService.getWithAuth("/users")
       .then((response) => {
         setRows(response.data.content);
       })
@@ -98,7 +98,7 @@ function Row(props) {
 
   useEffect(() => {
     if (open) {
-      getWithAuth("/pets/users/" + id)
+      HttpService.getWithAuth("/pets/users/" + id)
         .then((response) => {
           setPets(response.data);
         })
