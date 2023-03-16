@@ -2,7 +2,7 @@
 
 ### Postman Collection
 
-The [Postman Collection](postman/account_api.postman_collection.json) shared in the resources can be modified and used
+The [Postman Collection](postman/pet_clinic.postman_collection.json) shared in the resources can be modified and used
 for testing the endpoints.
 
 <br/>
