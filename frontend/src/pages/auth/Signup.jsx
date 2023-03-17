@@ -1,11 +1,11 @@
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { FormControl, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Link from "@mui/material/Link";
+import Paper from "@mui/material/Paper";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -13,8 +13,9 @@ import { useSnackbar } from "notistack";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../../services/AuthService";
+import "./auth.scss";
 
-const Register = () => {
+const Signup = () => {
   const defaultValues = {
     firstName: "",
     lastName: "",
@@ -23,6 +24,7 @@ const Register = () => {
     roles: [],
   };
 
+  const pageTitle = "Sign up";
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const theme = createTheme();
@@ -66,13 +68,30 @@ const Register = () => {
   };
 
   return (
-    <FormControl>
-      <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="xs">
-          <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <Grid container component="main" sx={{ height: "100vh" }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: `url(${"signup.png"})`,
+            backgroundRepeat: "no-repeat",
+            backgroundColor: (t) =>
+              t.palette.mode === "light"
+                ? t.palette.grey[50]
+                : t.palette.grey[900],
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
-              marginTop: 8,
+              my: 8,
+              mx: 4,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -82,84 +101,86 @@ const Register = () => {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign up
+              {pageTitle}
             </Typography>
             <Box
               component="form"
-              onSubmit={handleSubmit}
               noValidate
-              sx={{ mt: 1 }}
+              onSubmit={handleSubmit}
+              sx={{ mt: 3 }}
             >
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                name="firstName"
-                autoComplete="firstName"
-                autoFocus
-                value={formValues.firstName}
-                onChange={handleInputChange}
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lastName"
-                value={formValues.lastName}
-                onChange={handleInputChange}
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="username"
-                label="Username"
-                name="username"
-                autoComplete="username"
-                value={formValues.username}
-                onChange={handleInputChange}
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                value={formValues.password}
-                onChange={handleInputChange}
-                autoComplete="current-password"
-              />
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="given-name"
+                    label="First Name"
+                    name="firstName"
+                    required
+                    fullWidth
+                    id="firstName"
+                    value={formValues.firstName}
+                    onChange={handleInputChange}
+                    autoFocus
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    label="Last Name"
+                    id="lastName"
+                    name="lastName"
+                    autoComplete="family-name"
+                    value={formValues.lastName}
+                    onChange={handleInputChange}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    label="Email Address"
+                    id="username"
+                    name="username"
+                    autoComplete="username"
+                    value={formValues.username}
+                    onChange={handleInputChange}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    label="Password"
+                    name="password"
+                    type="password"
+                    id="password"
+                    autoComplete="new-password"
+                    onChange={handleInputChange}
+                  />
+                </Grid>
+              </Grid>
               <Button
+                type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                type="submit"
-                disabled={
-                  formValues.username === "" || formValues.password === ""
-                }
               >
-                Sign up
+                Sign Up
               </Button>
-              <Grid container>
+              <Grid container justifyContent="flex-end">
                 <Grid item>
                   <Link href="/login" variant="body2">
-                    {"Already have an account? Log in"}
+                    Already have an account? Sign in
                   </Link>
                 </Grid>
               </Grid>
             </Box>
           </Box>
-        </Container>
-      </ThemeProvider>
-    </FormControl>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
   );
 };
 
-export default Register;
+export default Signup;
