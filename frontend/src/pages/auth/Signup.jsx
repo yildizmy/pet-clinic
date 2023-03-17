@@ -139,7 +139,7 @@ const Signup = () => {
                   <TextField
                     required
                     fullWidth
-                    label="Email Address"
+                    label="Username"
                     id="username"
                     name="username"
                     autoComplete="username"
