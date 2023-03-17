@@ -39,6 +39,9 @@ const pieoptions = {
   title: "How many selected types of pets my clinic has registered?",
   is3D: true,
   height: 275,
+  titleTextStyle: {
+    fontSize: 16,
+  },
 };
 
 const Statistic = () => {
