@@ -106,7 +106,7 @@ const Statistic = () => {
         <div className="bottom">
           <h1 className="title">{pageTitle}</h1>
           <FormControl sx={{ ml: 0, mb: 2, width: 300 }}>
-            <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
+            <InputLabel id="demo-multiple-checkbox-label">Pet Type</InputLabel>
             <Select
               labelId="demo-multiple-checkbox-label"
               id="demo-multiple-checkbox"
@@ -156,7 +156,6 @@ const Statistic = () => {
                     <PieChart
                       data={chartData}
                       options={pieoptions}
-                      // width={"100%"}
                       height={"100%"}
                     />
                   </Grid>
