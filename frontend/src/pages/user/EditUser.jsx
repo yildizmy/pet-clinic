@@ -17,16 +17,18 @@ import "./user.scss";
 const EditUser = () => {
   const pageTitle = "Edit User";
   const { state } = useLocation();
-  const [adminRole, setAdminRole] = useState(
+
+  const [isAdmin, setIsAdmin] = useState(
     state.roles.find((r) => r.type === "ROLE_ADMIN") !== undefined
   );
+
   const defaultValues = {
     id: state.id,
     firstName: state.firstName,
     lastName: state.lastName,
     username: state.username,
     password: state.password,
-    adminRole: adminRole,
+    roles: state.roles.map((r) => r.type),
   };
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState(defaultValues);
@@ -34,10 +36,10 @@ const EditUser = () => {
 
   const handleCheckboxChange = (e) => {
     const { name, checked } = e.target;
-    setAdminRole(checked);
+    setIsAdmin(checked);
     setFormValues({
       ...formValues,
-      [name]: checked ? ["ROLE_ADMIN"] : [],
+      [name]: checked ? ["ROLE_ADMIN"] : [], // as we do not change the "ROLE_USER", we just pass the "ROLE_ADMIN"
     });
   };
 
@@ -117,8 +119,8 @@ const EditUser = () => {
                   <Checkbox
                     name="roles"
                     label="Roles"
-                    value={adminRole}
-                    checked={adminRole}
+                    value={isAdmin}
+                    checked={isAdmin}
                     onChange={handleCheckboxChange}
                   />
                 }
