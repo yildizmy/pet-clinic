@@ -12,6 +12,7 @@ Application users can also edit/delete their pets and own first/last name attrib
 Admin user has also a statistic page with data regarding how many selected types of pets the clinic has registered, access to user’s data and have ability to change any user
 attribute, except username.
 
+<img src="backend/src/main/resources/docs/images/statistic_view.png" width="1060"/>
 
 
 ### Entities
