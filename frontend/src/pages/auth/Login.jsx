@@ -122,10 +122,6 @@ const Login = () => {
                 value={formValues.password}
                 onChange={handleInputChange}
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
               <Button
                 type="submit"
                 fullWidth
