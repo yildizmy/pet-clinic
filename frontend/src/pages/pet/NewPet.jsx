@@ -17,14 +17,12 @@ import AuthService from "../../services/AuthService";
 import HttpService from "../../services/HttpService";
 import "./pet.scss";
 
-const userId = AuthService.getCurrentUser()?.id;
-
 const NewPet = () => {
   const pageTitle = "Add New Pet";
   const defaultValues = {
     name: "",
     typeId: "",
-    userId: userId,
+    userId: AuthService.getCurrentUser()?.id,
   };
 
   const { enqueueSnackbar } = useSnackbar();
