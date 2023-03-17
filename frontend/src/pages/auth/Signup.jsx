@@ -166,7 +166,7 @@ const Signup = () => {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign Up
+                Sign up
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
