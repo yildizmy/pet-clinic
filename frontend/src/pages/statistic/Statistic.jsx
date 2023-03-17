@@ -1,4 +1,6 @@
 import {
+  Box,
+  Grid,
   Paper,
   Table,
   TableBody,
@@ -17,6 +19,7 @@ import Select from "@mui/material/Select";
 import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
+import PieChart from "../../components/piechart/PieChart";
 import Sidebar from "../../components/sidebar/Sidebar";
 import HttpService from "../../services/HttpService";
 import "./statistic.scss";
@@ -32,11 +35,18 @@ const MenuProps = {
   },
 };
 
+const pieoptions = {
+  title: "How many selected types of pets my clinic has registered?",
+  is3D: true,
+  height: 275,
+};
+
 const Statistic = () => {
   const pageTitle = "Statistics";
   const [data, setData] = useState();
   const [types, setTypes] = useState([]);
   const [values, setValues] = useState([]);
+  const [chartData, setChartData] = useState([["Type", "Numbers per type"]]);
   const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
@@ -59,6 +69,7 @@ const Statistic = () => {
     HttpService.postWithAuth("/pets/types", body)
       .then((response) => {
         setData(response.data);
+        setChartData([...chartData, ...Object.entries(response.data)]);
       })
       .catch((error) => {
         if (error.response.status === 404) {
@@ -77,6 +88,7 @@ const Statistic = () => {
 
   const handleChange = (event) => {
     setValues(event?.target?.value || []);
+    setChartData([["Type", "Numbers per type"]]);
   };
 
   const renderValue = (selected) =>
@@ -113,25 +125,45 @@ const Statistic = () => {
               ))}
             </Select>
           </FormControl>
-          <TableContainer component={Paper} className="table">
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell className="tableCell">Type</TableCell>
-                  <TableCell className="tableCell">Count</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {data &&
-                  Object.entries(data).map(([k, v]) => (
-                    <TableRow key={k}>
-                      <TableCell className="tableCell">{k}</TableCell>
-                      <TableCell className="tableCell">{v}</TableCell>
-                    </TableRow>
-                  ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <Grid container spacing={2}>
+            <Grid item sm={6}>
+              <Box textAlign="left">
+                <TableContainer component={Paper} className="table">
+                  <Table sx={{ width: "100%" }} aria-label="simple table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell className="tableCell">Type</TableCell>
+                        <TableCell className="tableCell">Count</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {data &&
+                        Object.entries(data).map(([k, v]) => (
+                          <TableRow key={k}>
+                            <TableCell className="tableCell">{k}</TableCell>
+                            <TableCell className="tableCell">{v}</TableCell>
+                          </TableRow>
+                        ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Box>
+            </Grid>
+            <Grid item sm={6}>
+              <Box textAlign="center">
+                <Grid container>
+                  <Grid item={true}>
+                    <PieChart
+                      data={chartData}
+                      options={pieoptions}
+                      // width={"100%"}
+                      height={"100%"}
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+            </Grid>
+          </Grid>
         </div>
       </div>
     </div>
