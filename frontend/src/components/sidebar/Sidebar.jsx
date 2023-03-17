@@ -20,11 +20,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <img
-            src={process.env.PUBLIC_URL + "/logo_pet_clinic.png"}
-            alt="logo"
-            height="50"
-          />
+          <img className="companyLogo" />
         </Link>
       </div>
       <hr />

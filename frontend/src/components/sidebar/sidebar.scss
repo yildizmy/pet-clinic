@@ -15,6 +15,11 @@
       font-weight: bold;
       color: #57a7b3;
     }
+
+    .companyLogo {
+      content: url("./../../../public/logo_pet_clinic.png");
+      height: 50px;
+    }
   }
 
   hr {
