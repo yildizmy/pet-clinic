@@ -156,11 +156,11 @@ const Statistic = () => {
               <Box textAlign="center">
                 <Grid container>
                   <Grid item={true}>
-                    <PieChart
+                  {chartData && <PieChart
                       data={chartData}
                       options={pieoptions}
                       height={"100%"}
-                    />
+                    />}
                   </Grid>
                 </Grid>
               </Box>
