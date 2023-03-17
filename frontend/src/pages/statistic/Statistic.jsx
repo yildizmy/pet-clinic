@@ -133,7 +133,7 @@ const Statistic = () => {
                     <TableHead>
                       <TableRow>
                         <TableCell className="tableCell">Type</TableCell>
-                        <TableCell className="tableCell">Count</TableCell>
+                        <TableCell className="tableCell">Number</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
