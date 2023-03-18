@@ -32,17 +32,10 @@ public class SecurityConfig {
 
     private static final String[] AUTH_WHITELIST = {
             "/api/v1/auth/**",
-            // --- for Swagger UI v2 ------------
-            "/v2/api-docs",
-            "/swagger-resources",
-            "/swagger-resources/**",
-            "/configuration/ui",
-            "/configuration/security",
-            "/swagger-ui.html",
-            "/webjars/**",
-            // --- for Swagger UI v3 (OpenAPI) ---
             "/v3/api-docs/**",
-            "/swagger-ui/**"
+            "/v3/api-docs.yaml",
+            "/swagger-ui/**",
+            "/swagger-ui.html"
     };
 
     @Bean
@@ -84,3 +77,6 @@ public class SecurityConfig {
         return httpSecurity.build();
     }
 }
+
+
+
