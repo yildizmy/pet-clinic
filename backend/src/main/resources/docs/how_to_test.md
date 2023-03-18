@@ -1,5 +1,11 @@
 ## How to test?
 
+### Open API (Swagger) UI
+
+Open API (Swagger) Documentation UI for the endpoints, visit http://localhost:8080/swagger-ui/index.html after running the app.
+
+<br/>
+
 ### Postman Collection
 
 The [Postman Collection](postman/pet_clinic.postman_collection.json) shared in the resources can be modified and used
