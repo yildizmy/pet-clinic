@@ -14,18 +14,19 @@ attribute, except username.
 
 <img src="backend/src/main/resources/docs/images/statistic_view.png" width="1060"/>
 
+<br/>
 
-### Entities
+### Domain Model
 
-The information about the domain model is shown on [Entity Relationship Diagram](backend/src/main/resources/docs/er_diagram.md) section.
+The information about the entities is given on [Entity Relationship Diagram](backend/src/main/resources/docs/er_diagram.md) section.
 
+<br/>
 
 ### Getting Started
 
 In order to run and test the application, see details on [How to run?](backend/src/main/resources/docs/how_to_run.md) and [How to test?](backend/src/main/resources/docs/how_to_test.md) sections.
 
-
-
+<br/>
 
 ### Dependencies
 
@@ -40,6 +41,7 @@ In order to run and test the application, see details on [How to run?](backend/s
 * Node.js
 * Material UI
 
+<br/>
 
 ### Documentation
 [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)<br/>
@@ -52,11 +54,11 @@ In order to run and test the application, see details on [How to run?](backend/s
 [Material UI](https://mui.com/)<br/>
 [Notistack](https://notistack.com/features/basic)<br/>
 
+<br/>
 
 ### Version History
 
 * 0.1 Initial Release
-
 
 <br/>
 <br/>
