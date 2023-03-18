@@ -45,6 +45,7 @@ In order to run and test the application, see details on [How to run?](backend/s
 [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)<br/>
 [Spring Security](https://docs.spring.io/spring-security/reference/index.html)<br/>
 [Spring Data JPA](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/)<br/>
+[springdoc-openapi v2](https://springdoc.org/v2/)<br/>
 [MapStruct](https://mapstruct.org/)<br/>
 [JUnit 5](https://junit.org/junit5/docs/snapshot/user-guide/)<br/>
 [Entity Relationship Diagram (ERD)](https://www.lucidchart.com/pages/er-diagrams)<br/>
