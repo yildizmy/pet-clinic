@@ -190,7 +190,7 @@ class PetServiceTest {
      */
     @ParameterizedTest
     @CsvFileSource(resources = "/data/pets.csv")
-    void findAll_should_returnPetResponseList_when_PetIsFound(Long id, String name, Long typeId, String typeName, Long userId,
+    void findAllByUserId_should_returnPetResponseList_when_PetIsFound(Long id, String name, Long typeId, String typeName, Long userId,
                                                               String firstName, String lastName, String fullName, String username) {
         Pet pet = new Pet();
         pet.setId(id);
