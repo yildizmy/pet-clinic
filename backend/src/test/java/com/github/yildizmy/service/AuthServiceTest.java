@@ -58,7 +58,7 @@ class AuthServiceTest {
     private UserRequestMapper userRequestMapper;
 
     @Captor
-    ArgumentCaptor<User> userCaptor;
+    private ArgumentCaptor<User> userCaptor;
 
     /**
      * Method under test: {@link AuthService#login(LoginRequest)}
