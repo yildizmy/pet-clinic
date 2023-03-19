@@ -65,7 +65,7 @@ class PetServiceTest {
      */
     @ParameterizedTest
     @CsvFileSource(resources = "/data/pets.csv")
-    void findById_should_returnPetResponse_when_PetIsFound(Long id, String name, Long typeId, String typeName, Long userId,
+    void findById_should_returnPetResponse_when_PetIsFound(long id, String name, long typeId, String typeName, long userId,
                                                            String firstName, String lastName, String fullName, String username) {
         Pet pet = new Pet();
         pet.setId(id);
@@ -109,7 +109,7 @@ class PetServiceTest {
      */
     @Test
     void findById_should_throwNoSuchElementFoundException_when_PetIsNotFound() {
-        Long id = 101L;
+        long id = 101L;
         when(petRepository.findById(id)).thenReturn(Optional.empty());
 
         assertThrows(NoSuchElementFoundException.class, () -> {
@@ -124,7 +124,7 @@ class PetServiceTest {
      */
     @ParameterizedTest
     @CsvFileSource(resources = "/data/pets.csv")
-    void findAll_should_returnPetResponsePage_when_PetIsFound(Long id, String name, Long typeId, String typeName, Long userId,
+    void findAll_should_returnPetResponsePage_when_PetIsFound(long id, String name, long typeId, String typeName, long userId,
                                                               String firstName, String lastName, String fullName, String username) {
         Pet pet = new Pet();
         pet.setId(id);
@@ -190,7 +190,7 @@ class PetServiceTest {
      */
     @ParameterizedTest
     @CsvFileSource(resources = "/data/pets.csv")
-    void findAllByUserId_should_returnPetResponseList_when_PetIsFound(Long id, String name, Long typeId, String typeName, Long userId,
+    void findAllByUserId_should_returnPetResponseList_when_PetIsFound(long id, String name, long typeId, String typeName, long userId,
                                                               String firstName, String lastName, String fullName, String username) {
         Pet pet = new Pet();
         pet.setId(id);
@@ -239,7 +239,7 @@ class PetServiceTest {
      */
     @Test
     void findAllByUserId_should_throwNoSuchElementFoundException_when_PetIsNotFound() {
-        Long id = 101L;
+        long id = 101L;
         when(petRepository.findAllByUserId(id)).thenReturn(Collections.emptyList());
 
         assertThrows(NoSuchElementFoundException.class, () -> {
@@ -335,7 +335,7 @@ class PetServiceTest {
      */
     @ParameterizedTest
     @CsvFileSource(resources = "/data/pets.csv")
-    void create_should_returnCommandResponse_when_PetIsCreated(Long id, String name, Long typeId, String typeName, Long userId,
+    void create_should_returnCommandResponse_when_PetIsCreated(long id, String name, long typeId, String typeName, long userId,
                                                                String firstName, String lastName, String fullName, String username) {
         Type type = new Type();
         type.setId(typeId);
@@ -382,7 +382,7 @@ class PetServiceTest {
      */
     @ParameterizedTest
     @CsvFileSource(resources = "/data/pets.csv")
-    void update_should_returnCommandResponse_when_PetIsFound(Long id, String name, Long typeId, String typeName, Long userId,
+    void update_should_returnCommandResponse_when_PetIsFound(long id, String name, long typeId, String typeName, long userId,
                                                              String firstName, String lastName, String fullName, String username) {
         Type type = new Type();
         type.setId(typeId);
@@ -471,7 +471,7 @@ class PetServiceTest {
      */
     @Test
     void deleteById_should_throwNoSuchElementFoundException_when_PetIsNotFound() {
-        Long id = 101L;
+        long id = 101L;
         when(petRepository.findById(id)).thenReturn(Optional.empty());
 
         assertThrows(NoSuchElementFoundException.class, () -> {
