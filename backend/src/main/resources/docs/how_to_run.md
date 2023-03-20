@@ -58,13 +58,15 @@ docker-compose up --build
 DB_NAME=pet_clinic;DB_USERNAME=postgres;DB_PASSWORD=pass;JWT_SECRET=appSecretKey
 ```
 
-> **Note** If the _Environment variables_ field is not available, it can be added via _Modify options_ menu on the _Rub/Debug Configurations_ dialog (Alt + E).
+> **Note**  <br/>
+> If the _Environment variables_ field is not available, it can be added via _Modify options_ menu on the _Rub/Debug Configurations_ dialog (Alt + E).
 
 <br/>
 
 Then close the dialog and run the application.
 
-> **Note** If _Lombok requires enabled annotation processing_ dialog appears at this stage, click _Enable annotation processing_ button.
+> **Note** <br/>
+> If _Lombok requires enabled annotation processing_ dialog appears at this stage, click _Enable annotation processing_ button.
 
 <br/>
 
@@ -134,7 +136,8 @@ cd pet-clinic
 
 4. Run the following command:
 
-> **Warning** Before running this command, delete previously composed containers (`db`, `backend` and `frontend`) and volumes (`pet-clinic_db-data`) belonging to the application. 
+> **Warning** <br/>
+> Before running this command, delete previously composed containers (`db`, `backend` and `frontend`) and volumes (`pet-clinic_db-data`) belonging to the application. 
 On the other hand, if the app is running on IntelliJ IDEA, stop it to prevent a possible port error. 
 
 ```
