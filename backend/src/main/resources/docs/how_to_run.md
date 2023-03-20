@@ -134,7 +134,7 @@ cd pet-clinic
 
 4. Run the following command:
 
-> **Warning** Before running this command, delete previously composed containers and volumes belonging to the application (for `db`, `backend` and `frontend` containers and `pet-clinic_db-data` volume). 
+> **Warning** Before running this command, delete previously composed containers (`db`, `backend` and `frontend`) and volumes (`pet-clinic_db-data`) belonging to the application. 
 On the other hand, if the app is running on IntelliJ IDEA, stop it to prevent a possible port error. 
 
 ```
