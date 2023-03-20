@@ -130,7 +130,7 @@ cd pet-clinic
 
 4. Run the following command (by running this command, the app and database containers are built and start up):
 
-> **Warning** Before running this command, delete previously composed containers belonging to the application (db, backend and frontend).
+> **Warning** Before running this command, delete previously composed containers and volumes belonging to the application (for `db`, `backend` and `frontend` containers).
 
 ```
 docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build
