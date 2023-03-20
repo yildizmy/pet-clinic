@@ -63,6 +63,8 @@ for testing the endpoints.
 
 <br/>
 
+### Unit & Integration Tests
+Unit and Integration Tests are provided for services and controllers in the corresponding packages.
 
 <br/>
 <br/>
