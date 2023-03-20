@@ -132,7 +132,7 @@ cd pet-clinic
 ```
 <br/>
 
-4. Run the following command (by running this command, the app and database containers are built and start up):
+4. Run the following command:
 
 > **Warning** Before running this command, delete previously composed containers and volumes belonging to the application (for `db`, `backend` and `frontend` containers and `pet-clinic_db-data` volume). 
 On the other hand, if the app is running on IntelliJ IDEA, stop it to prevent a possible port error. 
@@ -143,7 +143,7 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build
 
 <br/>
 
-After this step is completed, the application will be available on http://localhost:3000 and the accounts given in the "User Accounts" section can be used for logging in to the application. 
+By running this command, the app and database containers are built and start up. After this step is completed, the application will be available on http://localhost:3000 and the accounts given in the "User Accounts" section can be used for logging in to the application. 
 Alternatively, API requests can be sent to the endpoints using Postman, etc. For this purpose, see the details on [How to test?](how_to_test.md) section. 
 <br/>
 
