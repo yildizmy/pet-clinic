@@ -60,7 +60,7 @@ DB_NAME=pet_clinic;DB_USERNAME=postgres;DB_PASSWORD=pass;JWT_SECRET=appSecretKey
 
 > **Note** If the _Environment variables_ field is not available, it can be added via _Modify options_ menu on the _Rub/Debug Configurations_ dialog (Alt + E).
 
-Then close the dialog and run the application.
+Then close the dialog and run the application (if _Lombok requires enabled annotation processing_ dialog appears click _Enable annotation processing_ button).
 
 <br/>
 
