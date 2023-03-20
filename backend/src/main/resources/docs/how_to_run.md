@@ -52,7 +52,7 @@ docker-compose up --build
 
 <br/>
 
-5. Open backend project using IntelliJ IDEA and then select _Run > Edit Configurations_ and add the following values to the _Environment variables_ field.  
+5. Open backend project using IntelliJ IDEA and then select _Run > Edit Configurations_ and add the following values to the **Environment variables** field.  
 
 ```
 DB_NAME=pet_clinic;DB_USERNAME=postgres;DB_PASSWORD=pass;JWT_SECRET=appSecretKey
@@ -60,7 +60,11 @@ DB_NAME=pet_clinic;DB_USERNAME=postgres;DB_PASSWORD=pass;JWT_SECRET=appSecretKey
 
 > **Note** If the _Environment variables_ field is not available, it can be added via _Modify options_ menu on the _Rub/Debug Configurations_ dialog (Alt + E).
 
-Then close the dialog and run the application (if _Lombok requires enabled annotation processing_ dialog appears click _Enable annotation processing_ button).
+<br/>
+
+Then close the dialog and run the application.
+
+> **Note** If _Lombok requires enabled annotation processing_ dialog appears at this stage, click _Enable annotation processing_ button.
 
 <br/>
 
