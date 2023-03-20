@@ -10,12 +10,11 @@ The following apps should be installed before running the application:
 - A command line app
 - Docker Desktop 
 
-> **Note** <br/>
-> For more information regarding the system requirements, etc. refer to the following pages:
-
-[Install on Mac](https://docs.docker.com/desktop/install/mac-install/)<br/>
-[Install on Windows](https://docs.docker.com/desktop/install/windows-install/)<br/>
-[Install on Linux](https://docs.docker.com/desktop/install/linux-install/)<br/>
+> **Note:** <br/>
+> For more information regarding the system requirements, etc. refer to the following pages: <br/>
+> [Install on Mac](https://docs.docker.com/desktop/install/mac-install/)<br/>
+> [Install on Windows](https://docs.docker.com/desktop/install/windows-install/)<br/>
+> [Install on Linux](https://docs.docker.com/desktop/install/linux-install/)<br/>
 
 <br/>
 
