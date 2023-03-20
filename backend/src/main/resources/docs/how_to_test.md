@@ -15,7 +15,8 @@ for testing the endpoints.
 
 ### API Endpoints
 
-> **Note** All URIs are relative to *http://localhost:8080/api/v1*
+> **Note** <br/>
+> All URIs are relative to *http://localhost:8080/api/v1*
 
 <br/>
 
