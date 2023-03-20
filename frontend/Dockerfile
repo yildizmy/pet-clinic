@@ -11,6 +11,7 @@ WORKDIR /usr/src/app/frontend
 
 # Copy package json and install dependencies
 COPY package*.json ./
+RUN npm install -g npm@9.6.2
 RUN npm install
 
 # Copy our app
