@@ -48,7 +48,7 @@ public class User {
     }
 
     public void removePet(Pet pet) {
-        this.pets.remove(pet);
+        pets.remove(pet);
         pet.setUser(null);
     }
 

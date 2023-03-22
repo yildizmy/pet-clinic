@@ -41,7 +41,7 @@ public class Type {
     }
 
     public void removePet(Pet pet) {
-        this.pets.remove(pet);
+        pets.remove(pet);
         pet.setType(null);
     }
 }
