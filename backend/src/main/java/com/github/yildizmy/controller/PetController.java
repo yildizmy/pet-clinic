@@ -45,19 +45,6 @@ public class PetController {
     }
 
     /**
-     * Fetches all pets based on the given parameters
-     *
-     * @param pageable
-     * @return List of PetResponse
-     */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
-    @GetMapping
-    public ResponseEntity<ApiResponse<Page<PetResponse>>> findAll(Pageable pageable) {
-        final Page<PetResponse> response = petService.findAll(pageable);
-        return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response));
-    }
-
-    /**
      * Fetches all pets based on the given userId
      *
      * @param userId
@@ -80,6 +67,19 @@ public class PetController {
     @PostMapping("/types")
     public ResponseEntity<ApiResponse<Map<String, Long>>> findAllByType(@Valid @RequestBody TypeSetRequest request) {
         final Map<String, Long> response = petService.findAllByType(request);
+        return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response));
+    }
+
+    /**
+     * Fetches all pets based on the given parameters
+     *
+     * @param pageable
+     * @return List of PetResponse
+     */
+    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
+    @GetMapping
+    public ResponseEntity<ApiResponse<Page<PetResponse>>> findAll(Pageable pageable) {
+        final Page<PetResponse> response = petService.findAll(pageable);
         return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response));
     }
 
