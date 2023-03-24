@@ -1,6 +1,5 @@
 package com.github.yildizmy.security;
 
-import com.github.yildizmy.service.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

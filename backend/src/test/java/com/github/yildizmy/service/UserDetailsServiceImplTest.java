@@ -2,6 +2,7 @@ package com.github.yildizmy.service;
 
 import com.github.yildizmy.model.User;
 import com.github.yildizmy.repository.UserRepository;
+import com.github.yildizmy.security.UserDetailsServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;

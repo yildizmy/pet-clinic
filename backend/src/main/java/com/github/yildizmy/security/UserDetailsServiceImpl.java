@@ -1,4 +1,4 @@
-package com.github.yildizmy.service;
+package com.github.yildizmy.security;
 
 import com.github.yildizmy.model.User;
 import com.github.yildizmy.repository.UserRepository;

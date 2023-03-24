@@ -2,7 +2,7 @@ package com.github.yildizmy.config;
 
 import com.github.yildizmy.security.AuthEntryPointJwt;
 import com.github.yildizmy.security.AuthTokenFilter;
-import com.github.yildizmy.service.UserDetailsServiceImpl;
+import com.github.yildizmy.security.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
