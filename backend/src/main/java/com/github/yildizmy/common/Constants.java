@@ -39,6 +39,6 @@ public final class Constants {
     public static final String UPDATED_PET = "Pet is updated";
     public static final String UPDATED_USER = "User is updated";
     public static final String DELETED_TYPE = "Type is deleted";
-    public static final String DELETED_PET = "Owner is deleted";
+    public static final String DELETED_PET = "Pet is deleted";
 
 }
