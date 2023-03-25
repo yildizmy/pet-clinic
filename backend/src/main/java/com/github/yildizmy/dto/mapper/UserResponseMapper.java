@@ -6,6 +6,8 @@ import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
+import java.text.MessageFormat;
+
 /**
  * Mapper used for mapping UserResponse fields
  */
@@ -18,6 +20,6 @@ public interface UserResponseMapper {
 
     @AfterMapping
     default void setFullName(@MappingTarget UserResponse dto, User entity) {
-        dto.setFullName(String.format("%s %s", entity.getFirstName(), entity.getLastName()));
+        dto.setFullName(MessageFormat.format("{0} {1}", entity.getFirstName(), entity.getLastName()));
     }
 }

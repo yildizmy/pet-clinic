@@ -27,8 +27,7 @@ public final class Constants {
     public static final String NOT_FOUND_TYPE = "Requested type is not found";
     public static final String NOT_FOUND_PET = "Requested pet is not found";
     public static final String NOT_FOUND_USER = "Requested user is not found";
-    public static final String NOT_FOUND_USERNAME = "User with username of %1$s is not found";
-    public static final String NOT_FOUND_ROLE = "Requested role is not found";
+    public static final String NOT_FOUND_USERNAME = "User with username of {0} is not found";
     public static final String ALREADY_EXISTS = "Requested element is already exists";
     public static final String ALREADY_EXISTS_TYPE = "Type with the same name is already exists";
     public static final String ALREADY_EXISTS_USER = "User with the same username is already exists";
