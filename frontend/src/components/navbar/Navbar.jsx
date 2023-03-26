@@ -28,7 +28,7 @@ const Navbar = () => {
             <div className="item">
               <Tooltip title={username} placement="bottom-end">
                 <img
-                  src={process.env.PUBLIC_URL + "/avatar.png"}
+                  src={`${process.env.PUBLIC_URL}/avatar.png`}
                   alt="avatar"
                   className="itemImg"
                   width={30}

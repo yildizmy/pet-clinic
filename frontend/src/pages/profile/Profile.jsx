@@ -48,7 +48,7 @@ const Profile = () => {
             <h1 className="title">Profile</h1>
             <div className="item">
               <img
-                src={process.env.PUBLIC_URL + "/profile.png"}
+                src={`${process.env.PUBLIC_URL}/profile.png`}
                 alt="user"
                 className="itemImg"
               />
