@@ -16,7 +16,6 @@ const signup = (body) => {
 };
 
 const logout = () => {
-  debugger;
   localStorage.removeItem("user");
 };
 
