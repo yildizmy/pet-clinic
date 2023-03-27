@@ -62,7 +62,7 @@ In order to run and test the application, see details on [How to run?](backend/s
 
 ### Version History
 
-* 0.1 Initial Release
+* v1.0.0 Initial Release
 
 <br/>
 <br/>
