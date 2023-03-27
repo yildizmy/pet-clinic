@@ -41,6 +41,7 @@ In order to run and test the application, see details on [How to run?](backend/s
 * MapStruct
 * PostgreSQL
 * Flyway
+* React
 * Node.js
 * Material UI
 
