@@ -2,7 +2,6 @@ package com.github.yildizmy.security;
 
 import com.github.yildizmy.model.User;
 import com.github.yildizmy.repository.UserRepository;
-import com.github.yildizmy.security.UserDetailsImpl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
