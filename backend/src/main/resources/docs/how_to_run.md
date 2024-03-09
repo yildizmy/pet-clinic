@@ -79,7 +79,7 @@ cd pet-clinic/frontend
 
 7. Run the following commands respectively:
 
-```
+```shell
 npm install
 ```
 
