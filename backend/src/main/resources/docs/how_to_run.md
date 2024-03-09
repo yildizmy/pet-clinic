@@ -140,7 +140,7 @@ cd pet-clinic
 > Before running this command, if exists, delete previously composed containers (`db`, `backend`, `frontend`), images (`pet-clinic-backend`, `pet-clinic-frontend`) and volumes (`pet-clinic_db-data`) belonging to the application. 
 On the other hand, if the app is running on IntelliJ IDEA, stop it to prevent a possible port error. 
 
-```
+```shell
 docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build
 ```
 
