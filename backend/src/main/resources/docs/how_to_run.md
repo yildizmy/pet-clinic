@@ -46,7 +46,7 @@ cd pet-clinic
 
 4. Run the following command (by running this command, the database container is built and starts up):
 
-```
+```shell
 docker compose up --build
 ```
 
