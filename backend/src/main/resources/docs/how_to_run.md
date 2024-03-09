@@ -122,7 +122,7 @@ In order to run the application in production mode, apply the following steps:
 
 2. Open command prompt window and clone the project from GitHub using the following command:
 
-```
+```shell
 git clone https://github.com/yildizmy/pet-clinic.git
 ```
 <br/>
