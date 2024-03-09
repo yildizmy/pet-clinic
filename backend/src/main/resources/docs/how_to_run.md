@@ -83,7 +83,7 @@ cd pet-clinic/frontend
 npm install
 ```
 
-```
+```shell
 npm start
 ```
 
