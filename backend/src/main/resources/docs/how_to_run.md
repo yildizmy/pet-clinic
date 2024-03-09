@@ -129,7 +129,7 @@ git clone https://github.com/yildizmy/pet-clinic.git
 
 3. Change the current directory to the project directory where the `docker-compose.yml` file is in:
 
-```
+```shell
 cd pet-clinic
 ```
 <br/>
