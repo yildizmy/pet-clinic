@@ -15,6 +15,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * Integration Test for PetController endpoints
+ */
 class PetControllerTest extends IntegrationTest {
 
     /**
