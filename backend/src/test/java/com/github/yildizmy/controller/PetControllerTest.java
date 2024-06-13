@@ -20,13 +20,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 class PetControllerTest extends IntegrationTest {
 
+    private static final String BASE_URL = "/api/v1/pets";
+
     /**
      * Method under test: {@link PetController#findById(long)}
      */
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void findById_should_returnStatusIsOk_when_PetIsFound() throws Exception {
-        mvc.perform((get("/api/v1/pets/{id}", 1)))
+        mvc.perform((get(BASE_URL + "/{id}", 1)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data.name", equalTo("Lassie")));
@@ -38,7 +40,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void findById_should_returnStatusIsNotFound_when_PetIsNotFound() throws Exception {
-        mvc.perform((get("/api/v1/pets/{id}", 999)))
+        mvc.perform((get(BASE_URL + "/{id}", 999)))
                 .andDo(print())
                 .andExpect(status().isNotFound());
     }
@@ -49,7 +51,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void findAll_should_returnStatusIsOk() throws Exception {
-        mvc.perform((get("/api/v1/pets")))
+        mvc.perform((get(BASE_URL)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data.content[*].name").isNotEmpty())
@@ -63,7 +65,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void findAllByUserId_should_returnStatusIsOk_when_PetIsFound() throws Exception {
-        mvc.perform((get("/api/v1/pets/users/{userId}", 1)))
+        mvc.perform((get(BASE_URL + "/users/{userId}", 1)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data[2].name").value("Tweety"));
@@ -75,7 +77,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void findAllByUserId_should_returnStatusIsNotFound_when_PetIsNotFound() throws Exception {
-        mvc.perform((get("/api/v1/pets/users/{id}", 999)))
+        mvc.perform((get(BASE_URL + "/users/{id}", 999)))
                 .andDo(print())
                 .andExpect(status().isNotFound());
     }
@@ -86,7 +88,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void findAllByType_should_returnStatusIsOk_when_PetIsFound() throws Exception {
-        mvc.perform((post("/api/v1/pets/types"))
+        mvc.perform((post(BASE_URL + "/types"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\n\"ids\":[1,2]\n}")
                 )
@@ -102,7 +104,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void findAllByType_should_returnEmptyResult_when_PetIsNotFound() throws Exception {
-        mvc.perform((post("/api/v1/pets/types"))
+        mvc.perform((post(BASE_URL + "/types"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\n\"ids\":[999]\n}")
                 )
@@ -117,7 +119,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void create_should_returnStatusIsCreated_when_PetIsCreated() throws Exception {
-        mvc.perform(post("/api/v1/pets")
+        mvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\n\"name\": \"Max\",\n\"typeId\": 2,\n\"userId\": 1\n}")
                 )
@@ -131,7 +133,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void create_should_returnStatusIsUnprocessableEntity_when_PetNameIsTooShort() throws Exception {
-        mvc.perform(post("/api/v1/pets")
+        mvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\n\"name\": \"X\",\n\"typeId\": 2,\n\"userId\": 1\n}")
                 )
@@ -144,7 +146,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void create_should_returnStatusIsUnprocessableEntity_when_PetNameIsTooLong() throws Exception {
-        mvc.perform(post("/api/v1/pets")
+        mvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\n\"name\": \"Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n\"typeId\": 2,\n\"userId\": 1\n}")
                 )
@@ -157,7 +159,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void update_should_returnStatusIsOk_when_PetIsUpdated() throws Exception {
-        mvc.perform(put("/api/v1/pets")
+        mvc.perform(put(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\n\"id\": 1,\n\"name\": \"Flip\",\n\"typeId\": 3,\n\"userId\": 1\n}")
                 )
@@ -171,7 +173,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void update_should_returnStatusIsUnprocessableEntity_when_PetNameIsTooShort() throws Exception {
-        mvc.perform(put("/api/v1/pets")
+        mvc.perform(put(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\n\"id\": 1,\n\"name\": \"X\",\n\"typeId\": 3,\n\"userId\": 1\n}")
                 )
@@ -184,7 +186,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void update_should_returnStatusIsUnprocessableEntity_when_PetNameIsTooLong() throws Exception {
-        mvc.perform(put("/api/v1/pets")
+        mvc.perform(put(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\n\"id\": 1,\n\"name\": \"Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n\"typeId\": 3,\n\"userId\": 1\n}")
                 )
@@ -197,7 +199,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void deleteById_should_returnStatusIsNoContent_when_PetIsDeleted() throws Exception {
-        mvc.perform(delete("/api/v1/pets/{id}", 1))
+        mvc.perform(delete(BASE_URL + "/{id}", 1))
                 .andExpect(status().isNoContent());
     }
 
@@ -207,7 +209,7 @@ class PetControllerTest extends IntegrationTest {
     @Test
     @WithMockUser(username = "user", roles = {"USER"})
     void deleteById_should_throwNoSuchElementFoundException_when_PetIsNotFound() throws Exception {
-        mvc.perform(delete("/api/v1/pets/{id}", 999))
+        mvc.perform(delete(BASE_URL + "/{id}", 999))
                 .andExpect(status().isNotFound());
     }
 }
