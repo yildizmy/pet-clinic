@@ -148,7 +148,7 @@ class PetControllerTest extends IntegrationTest {
     void create_should_returnStatusIsUnprocessableEntity_when_PetNameIsTooLong() throws Exception {
         mvc.perform(post(BASE_URL)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\n\"name\": \"Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n\"typeId\": 2,\n\"userId\": 1\n}")
+                        .content("{\n\"name\": \"Fluffernutterbunnycottoncandypuffydoodledummypetname\",\n\"typeId\": 2,\n\"userId\": 1\n}")
                 )
                 .andExpect(status().isUnprocessableEntity());
     }
