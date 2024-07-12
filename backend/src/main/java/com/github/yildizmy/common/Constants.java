@@ -1,17 +1,19 @@
 package com.github.yildizmy.common;
 
 /**
- * Constant variables used in the project
+ * Constant variables used in the project. A private constructor is added to prevent instantiation.
  */
 public final class Constants {
 
     private Constants() {
+        throw new UnsupportedOperationException(CLASS_CANNOT_BE_INSTANTIATED);
     }
 
     public static final String TRACE = "trace";
     public static final String DATE_FORMAT = "dd.MM.yyyy";
     public static final String DATE_TIME_FORMAT = "dd.MM.yyyy HH:mm:ss";
 
+    public static final String CLASS_CANNOT_BE_INSTANTIATED = "This is a utility class and cannot be instantiated";
     public static final String VALIDATION_ERROR = "Validation error. Check 'errors' field for details";
     public static final String METHOD_ARGUMENT_NOT_VALID = "MethodArgumentNotValid exception";
     public static final String DELETED_USER = "User is deleted";
@@ -39,5 +41,4 @@ public final class Constants {
     public static final String UPDATED_USER = "User is updated";
     public static final String DELETED_TYPE = "Type is deleted";
     public static final String DELETED_PET = "Pet is deleted";
-
 }
