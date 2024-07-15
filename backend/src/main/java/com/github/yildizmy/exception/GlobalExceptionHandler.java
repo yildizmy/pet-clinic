@@ -33,7 +33,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     private boolean printStackTrace;
 
     /**
-     * Handles MethodArgumentNotValidException
+     * Handles MethodArgumentNotValidException to validate requests and display formatted validation messages.
+     * In order to display validation messages properly, keep this method in GlobalExceptionHandler class.
      *
      * @param ex
      * @param headers
@@ -47,11 +48,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                                   HttpHeaders headers,
                                                                   HttpStatusCode statusCode,
                                                                   WebRequest request) {
-        log.error(METHOD_ARGUMENT_NOT_VALID, ex);
-        final ErrorResponse errorResponse = new ErrorResponse(HttpStatus.UNPROCESSABLE_ENTITY.value(), VALIDATION_ERROR);
+        ErrorResponse errorResponse = new ErrorResponse(HttpStatus.UNPROCESSABLE_ENTITY.value(), VALIDATION_ERROR);
         for (FieldError fieldError : ex.getBindingResult().getFieldErrors()) {
             errorResponse.addValidationError(fieldError.getField(), fieldError.getDefaultMessage());
         }
+        log.error(METHOD_ARGUMENT_NOT_VALID, ex);
         return ResponseEntity.unprocessableEntity().body(errorResponse);
     }
 
