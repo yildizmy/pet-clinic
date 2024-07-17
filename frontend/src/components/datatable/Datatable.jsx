@@ -17,6 +17,7 @@ const Datatable = ({ title, userColumns, actionColumn, data, to }) => {
         columns={userColumns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
+        sx={{display: 'grid'}}
         // checkboxSelection
       />
     </div>
