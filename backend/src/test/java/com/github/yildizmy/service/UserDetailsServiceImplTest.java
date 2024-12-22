@@ -1,6 +1,6 @@
 package com.github.yildizmy.service;
 
-import com.github.yildizmy.model.User;
+import com.github.yildizmy.domain.User;
 import com.github.yildizmy.repository.UserRepository;
 import com.github.yildizmy.security.UserDetailsServiceImpl;
 import org.junit.jupiter.api.Test;

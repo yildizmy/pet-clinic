@@ -1,7 +1,7 @@
 package com.github.yildizmy.dto.mapper;
 
 import com.github.yildizmy.dto.response.UserResponse;
-import com.github.yildizmy.model.User;
+import com.github.yildizmy.domain.User;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

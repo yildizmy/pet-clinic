@@ -1,4 +1,4 @@
-package com.github.yildizmy.model;
+package com.github.yildizmy.domain;
 
 public enum RoleType {
     ROLE_USER,

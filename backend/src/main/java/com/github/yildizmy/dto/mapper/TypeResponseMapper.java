@@ -1,7 +1,7 @@
 package com.github.yildizmy.dto.mapper;
 
 import com.github.yildizmy.dto.response.TypeResponse;
-import com.github.yildizmy.model.Type;
+import com.github.yildizmy.domain.Type;
 import org.mapstruct.Mapper;
 
 /**

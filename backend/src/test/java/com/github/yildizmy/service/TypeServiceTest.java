@@ -7,7 +7,7 @@ import com.github.yildizmy.dto.response.CommandResponse;
 import com.github.yildizmy.dto.response.TypeResponse;
 import com.github.yildizmy.exception.ElementAlreadyExistsException;
 import com.github.yildizmy.exception.NoSuchElementFoundException;
-import com.github.yildizmy.model.Type;
+import com.github.yildizmy.domain.Type;
 import com.github.yildizmy.repository.TypeRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

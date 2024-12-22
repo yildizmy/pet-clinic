@@ -35,7 +35,7 @@ public class UserController {
      * @param id
      * @return UserResponse
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<UserResponse>> findById(@PathVariable long id) {
         final UserResponse response = userService.findById(id);
@@ -48,7 +48,7 @@ public class UserController {
      * @param pageable
      * @return List of UserResponse
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_ADMIN)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_ADMIN)")
     @GetMapping
     public ResponseEntity<ApiResponse<Page<UserResponse>>> findAll(Pageable pageable) {
         final Page<UserResponse> response = userService.findAll(pageable);
@@ -61,7 +61,7 @@ public class UserController {
      * @param request
      * @return id of the created user
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_ADMIN)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_ADMIN)")
     @PostMapping
     public ResponseEntity<ApiResponse<CommandResponse>> create(@Valid @RequestBody UserRequest request) {
         final CommandResponse response = userService.create(request);
@@ -75,7 +75,7 @@ public class UserController {
      *
      * @return id of the updated user
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
     @PutMapping
     public ResponseEntity<ApiResponse<CommandResponse>> update(@Valid @RequestBody ProfileRequest request) {
         final CommandResponse response = userService.update(request);
@@ -87,7 +87,7 @@ public class UserController {
      *
      * @return id of the updated user
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
     @PutMapping("/profile")
     public ResponseEntity<ApiResponse<CommandResponse>> updateFullName(@Valid @RequestBody ProfileRequest request) {
         final CommandResponse response = userService.updateFullName(request);
@@ -99,7 +99,7 @@ public class UserController {
      *
      * @param id
      */
-    @PreAuthorize("hasAnyRole(T(com.github.yildizmy.model.RoleType).ROLE_ADMIN)")
+    @PreAuthorize("hasAnyRole(T(com.github.yildizmy.domain.RoleType).ROLE_ADMIN)")
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<Void>> deleteById(@PathVariable long id) {
         userService.deleteById(id);

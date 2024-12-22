@@ -34,7 +34,7 @@ public class TypeController {
      * @param id
      * @return TypeResponse
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<TypeResponse>> findById(@PathVariable long id) {
         final TypeResponse response = typeService.findById(id);
@@ -47,7 +47,7 @@ public class TypeController {
      * @param pageable
      * @return List of TypeResponse
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
     @GetMapping
     public ResponseEntity<ApiResponse<Page<TypeResponse>>> findAll(Pageable pageable) {
         final Page<TypeResponse> response = typeService.findAll(pageable);
@@ -60,7 +60,7 @@ public class TypeController {
      * @param request
      * @return id of the created type
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
     @PostMapping
     public ResponseEntity<ApiResponse<CommandResponse>> create(@Valid @RequestBody TypeRequest request) {
         final CommandResponse response = typeService.create(request);
@@ -74,7 +74,7 @@ public class TypeController {
      *
      * @return id of the updated type
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
     @PutMapping
     public ResponseEntity<ApiResponse<CommandResponse>> update(@Valid @RequestBody TypeRequest request) {
         final CommandResponse response = typeService.update(request);
@@ -86,7 +86,7 @@ public class TypeController {
      *
      * @param id
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.model.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<Void>> deleteById(@PathVariable long id) {
         typeService.deleteById(id);
