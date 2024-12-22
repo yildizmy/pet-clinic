@@ -1,7 +1,7 @@
 package com.github.yildizmy.dto.mapper;
 
 import com.github.yildizmy.dto.response.PetResponse;
-import com.github.yildizmy.domain.Pet;
+import com.github.yildizmy.domain.entity.Pet;
 import org.mapstruct.Mapper;
 
 /**

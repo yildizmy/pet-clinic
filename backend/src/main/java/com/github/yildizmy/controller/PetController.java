@@ -37,7 +37,7 @@ public class PetController {
      * @param id
      * @return PetResponse
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.enums.RoleType).ROLE_USER)")
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<PetResponse>> findById(@PathVariable long id) {
         final PetResponse response = petService.findById(id);
@@ -50,7 +50,7 @@ public class PetController {
      * @param userId
      * @return List of PetResponse
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.enums.RoleType).ROLE_USER)")
     @GetMapping("/users/{userId}")
     public ResponseEntity<ApiResponse<List<PetResponse>>> findAllByUserId(@PathVariable long userId) {
         final List<PetResponse> response = petService.findAllByUserId(userId);
@@ -63,7 +63,7 @@ public class PetController {
      * @param request
      * @return selected types and count of each type
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.enums.RoleType).ROLE_USER)")
     @PostMapping("/types")
     public ResponseEntity<ApiResponse<Map<String, Long>>> findAllByType(@Valid @RequestBody TypeSetRequest request) {
         final Map<String, Long> response = petService.findAllByType(request);
@@ -76,7 +76,7 @@ public class PetController {
      * @param pageable
      * @return List of PetResponse
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.enums.RoleType).ROLE_USER)")
     @GetMapping
     public ResponseEntity<ApiResponse<Page<PetResponse>>> findAll(Pageable pageable) {
         final Page<PetResponse> response = petService.findAll(pageable);
@@ -89,7 +89,7 @@ public class PetController {
      * @param request
      * @return id of the created pet
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.enums.RoleType).ROLE_USER)")
     @PostMapping
     public ResponseEntity<ApiResponse<CommandResponse>> create(@Valid @RequestBody PetRequest request) {
         final CommandResponse response = petService.create(request);
@@ -103,7 +103,7 @@ public class PetController {
      *
      * @return id of the updated pet
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.enums.RoleType).ROLE_USER)")
     @PutMapping
     public ResponseEntity<ApiResponse<CommandResponse>> update(@Valid @RequestBody PetRequest request) {
         final CommandResponse response = petService.update(request);
@@ -115,7 +115,7 @@ public class PetController {
      *
      * @param id
      */
-    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.RoleType).ROLE_USER)")
+    @PreAuthorize("hasRole(T(com.github.yildizmy.domain.enums.RoleType).ROLE_USER)")
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<Void>> deleteById(@PathVariable long id) {
         petService.deleteById(id);

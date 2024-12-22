@@ -1,6 +1,6 @@
 package com.github.yildizmy.repository;
 
-import com.github.yildizmy.domain.Pet;
+import com.github.yildizmy.domain.entity.Pet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

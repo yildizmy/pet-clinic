@@ -1,5 +1,6 @@
-package com.github.yildizmy.domain;
+package com.github.yildizmy.domain.entity;
 
+import com.github.yildizmy.domain.enums.RoleType;
 import jakarta.persistence.*;
 import lombok.*;
 

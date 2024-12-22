@@ -7,7 +7,7 @@ import com.github.yildizmy.dto.request.TypeSetRequest;
 import com.github.yildizmy.dto.response.CommandResponse;
 import com.github.yildizmy.dto.response.PetResponse;
 import com.github.yildizmy.exception.NoSuchElementFoundException;
-import com.github.yildizmy.domain.Pet;
+import com.github.yildizmy.domain.entity.Pet;
 import com.github.yildizmy.repository.PetRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
